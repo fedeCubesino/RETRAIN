@@ -1,0 +1,502 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@import url(../assets/Mont-ExtraLightDEMO.otf);
+
+body {
+    position: relative;
+    width: 100%;
+    height: 2500px;
+}
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.encabezado {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(213,4,4);
+    background: radial-gradient(circle, rgba(213,4,4,0.9668242296918768) 52%, rgba(121,17,39,0.9023984593837535) 99%);
+    a {
+        margin-left: 10px;
+        margin-right: 10px;
+        color: antiquewhite;
+    }
+    p {
+        color: antiquewhite;
+    }
+}
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    gap: 10px;
+    .logo {
+        width: 300px;
+        height: 100px;
+        position: absolute;
+        right: 50%;
+        .logoimg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+        .menu-nav {
+        position: absolute;
+        left: 55%;
+        ul {
+            list-style: none;
+            li {
+                gap: 30px;
+                a {
+                    text-decoration: none;
+                    color: rgb(213,4,4);
+                    margin: 10px;
+                    cursor: pointer;
+                    &:hover{
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+
+}
+.main-principal {
+    width: 100%;
+    height: 1500px;
+}
+
+.principal {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+.imagenes {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+
+.tarjeta {
+    width: 15%;
+    height: 250px;
+    bottom: 0%;
+    opacity: 0;
+    background-color: aliceblue;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    p {
+        position: relative;
+        top: 40%;
+        text-align: center;
+    }
+}
+.tarjeta:first-child {
+    width: 20%;
+}
+.tarjeta:last-child {
+    width: 20%;
+}
+.textos-tarj {
+    position: absolute;
+    color: aliceblue;
+    z-index: 20;
+    width: 100%;
+    bottom: 30%;
+    display: flex;
+    object-fit: contain;
+}
+h2 {
+    width: 15%;
+    text-align: center;
+    z-index: 30;
+    opacity: 1;
+}
+h2:first-child {
+    width: 20%;
+}
+h2:last-child {
+    width: 20%;
+}
+.texto-tarjeta {
+    color: rgb(8, 8, 8);
+    opacity: 1;
+    z-index: 100;
+}
+.tarjetas {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    z-index: 10;
+    position: absolute;
+    bottom: 10%;
+}
+
+/* Agrega una clase para los h2 que estarán siempre en color aliceblue */
+
+
+/* Agrega una clase para los h2 dentro de las tarjetas que estarán en color negro */
+
+@keyframes anime {
+    0% { opacity: 0; }
+    5% { opacity: 1; background-color: aliceblue; }
+    95% { opacity: 1; background-color: aliceblue; }
+    100% { opacity: 0; }
+}
+
+
+footer {
+    width: 100%;
+    height: 400px;
+    background: rgb(213,4,4);
+    background: radial-gradient(circle, rgba(213,4,4,0.9668242296918768) 52%, rgba(121,17,39,0.9023984593837535) 99%);
+    .footer-main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        .cont {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            h4 {
+                position: absolute;
+                top: 100px;
+                left: 50px;
+                font-size: 30px;
+            }
+            h5 {
+                position: absolute;
+                top: 150px;
+                left: 50px;
+                font-size: 16px;
+            }
+        }
+        .formulario {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            
+            .form-grup {
+                position: absolute;
+                flex-direction: column;
+                top: 50px;
+                left: 0px;
+                width: 350px;
+                height: 250px;
+                input {
+                    position: relative;
+                    width: 100%;
+                    height: 40px;
+                    margin: 3px;
+                    &::placeholder {
+                        color: black;
+                    }
+                    background-color: red;
+                }
+                #mensaje::placeholder {position: absolute;
+                top: 5px;}
+                .form-mensaje {
+                    height: 100px;
+                }
+            }
+            button {
+                position: absolute;
+                top: 250px;
+                left: 100px;
+                width: 100px;
+                height: 30px;
+                color: red;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: rgb(75, 75, 161);
+            }
+        }
+    }
+}
+
+
+.calendario-turnos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1000px;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        width: 900px;
+        height: 15%;
+        color: azure;
+        background-color: red;
+        text-align: center;
+        position: relative;
+        top: 10%;
+}
+}
+.calendario {
+    position: relative;
+    text-decoration: beige;
+    width: 900px;
+    height: 800px;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    background-image: url(../assets/people-exercise-fit-fitness.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    .controles {
+        display: flex;
+        justify-content: space-between;
+        margin: 4px;
+        .mesActual {
+            color: azure;
+            font-size: 28px;
+        }
+        #mesAnterior {
+            background-color: darkslategrey;
+            justify-self: center;
+            width: 100px;
+            border-radius: 50% 10% 10% 50%;
+            cursor: pointer;
+        }
+        
+        #mesSiguiente {
+            background-color: darkslategrey;
+            justify-self:center;
+            width: 100px;
+            border-radius: 10% 50% 50% 10%;
+            cursor: pointer;
+        }
+    }
+    ul {
+        display: flex;
+        li {
+            width: 120px;
+            list-style: none;
+            text-align: center;
+            color: azure;}
+    }
+    .dias {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        .dia {
+            position: relative;
+            color: azure;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+    .mes {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+}
+
+.dia:hover {
+    scale: 1.05;
+    background-color: darkslategray;
+    z-index: 2;
+}
+#formulario-reserva {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .horarios-disponibles {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+        height: 30px;
+        color: rgb(206, 245, 208);
+        margin: 15px;
+        .horarios-container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: 20px;
+            .horario {
+                cursor: pointer;
+                width: 60px;
+            }
+        }
+        
+    }
+    #formularioReserva {
+        display: none;
+        width: 300px;
+        margin-top: 30px;
+        flex-direction: column;
+        align-self: center;
+        align-items: center;
+        gap: 10px;
+        input {
+            width: 100%;
+            height: 25px;
+        }
+        button {
+            background-color: darkslategrey;
+            width: 50%;
+            height: 30px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        h3 {
+            color: azure;
+        }
+        label {
+            color: azure;
+        }
+        .mensaje-error {
+            display: none;
+        }
+    }
+}
+
+.horario.reservado {
+    color: rgb(199, 56, 56);
+    text-decoration: line-through;
+}
+
+.horario:hover {
+    scale: 1.2;
+}
+
+button:hover {
+    color: azure;
+    background-color: rgb(12, 0, 15);
+}
+.reserva-realizada {
+    font-size: 18px;
+    color: rgb(219, 206, 206);
+    margin-top: 20%;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(48, 50, 56);
+}
+.btn-cont {
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    position: absolute;
+    left: 45%;
+    margin-top: 2%;
+    border-radius: 10px;
+}
+.btn-cont:hover {
+    color: azure;
+    background-color: rgb(12, 0, 15);
+}
+/* Estilos para la tabla de reservas */
+
+
+.calendario-reservas {
+    text-decoration: rgb(15, 15, 15);
+    width: 800px;
+    height: 700px;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    background-color: cadetblue;
+    h2 {
+        justify-self: center;
+        text-align: center;
+        font-size: 50px;
+        background-color:rgb(167, 130, 177); ;
+    }
+    .controles-reservas {
+        display: flex;
+        justify-content: space-between;
+        margin: 4px;
+        .mesActual-res {
+            color: rgb(17, 17, 17);
+            font-size: 28px;
+        }
+        #mesAnterior-res {
+            justify-self: center;
+            width: 100px;
+            height: 30px;
+            border-radius: 50% 10% 10% 50%;
+        }
+        
+        #mesSiguiente-res {
+            justify-self:center;
+            width: 100px;
+            border-radius: 10% 50% 50% 10%;
+        }
+    }
+    ul {
+        display: flex;
+        li {
+            width: 120px;
+            list-style: none;
+            text-align: center;
+            color: rgb(16, 17, 17);}
+    }
+    .dias-res {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        .dia {
+            position: relative;
+            color: rgb(15, 15, 15);
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+    .mes {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .reservas-form {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        width: 300px;
+    }
+    
+   .reservas-dia {
+    margin: 10px;
+   }
+   .reserva-elem {
+    margin: 30px;
+   }
+    .reserv {
+        position: absolute;
+        bottom: 20%;
+        color: red;
+        text-decoration: maroon;
+        text-align: center;
+        z-index: 10;
+    }
+}
+  
+
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="encabezado">
+            <a href="">@RETRAIN FITNESS</a>
+            <p href="">MON-SAT 08AM-20PM</p>
+            <a href="">TEL +376 380 376</a>
+        </div>
+        <section class="header">
+            <div class="logo">
+                <img class="logoimg" src="../assets/RETRAINLOGO.jpg" alt="">
+            </div>
+            <nav class="menu-nav">
+                <ul>
+                    <li>
+                        <a href="../index.html">HOME</a>
+                        <a href="./about.html">ABOUT</a>
+                        <a href="./services.html">RESERVAS ON-LINE</a>
+                        <a href="./galery.html">GALERY</a>
+                        <a href="./contacto.html">CONTAC</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main class="calendario-turnos">
+        <h1>RESERVA TU TURNO </h1>
+        <div class="calendario">
+            <div class="controles">
+                <button id="mesAnterior">Anterior</button>
+                <span class="mesActual"></span>
+                <button id="mesSiguiente">Siguiente</button>
+            </div>
+            <ul>
+                <li>Dom</li>
+                <li>Lun</li>
+                <li>Mar</li>
+                <li>Mier</li>
+                <li>Jue</li>
+                <li>Vier</li>
+                <li>Sab</li>
+            </ul>
+            <div class="dias"></div>
+            
+            <div id="formulario-reserva">
+                <div id="horarios-click" class="horarios-disponibles"></div>
+                <div class="contenedorHorarios"></div>
+                <form id="formularioReserva">
+                    <h3>Dejanos tus datos</h3>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" title="Agrega tu nombre aqui" required>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" title="Agrega tu telefono aqui"required>
+                    <button type="submit">Reservar</button>
+                    
+                </form>
+                
+            </div>
+        </div>
+        </main>
+    <footer>
+        <section class="footer-main">
+            <div class="cont">
+                <h4>CONTAC ME</h4>
+                <h5>Write me if you have any questions</h5>
+            </div>
+            <form class="formulario">
+                <div class="form-conteiner">
+                    <div class="form-grup">
+                        <input type="text" id="nombre" class="form-nombre" placeholder="NAME">
+                        <input type="text" id="email" class="form-email" placeholder="EMAIL">
+                        <input type="text" id="tel" class="form-tel" placeholder="SUBJECT (OPCIONAL)">
+                        <input type="text" id="mensaje" class="form-mensaje" placeholder="MESSAGE (OPCIONAL)">
+                        <button>ENVIAR</button>
+                    </div>
+                </div>
+        </section>
+    </footer>
+    <script src="../scripts/scriptservices.js"></script>
+</body>
+</html>
