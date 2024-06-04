@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let fechaSeleccionada;
     let horarioSeleccionado;
     let reservaRealizada;
+    let botonContinuar;
     const horariosReservadosPorFecha = {};  
      
         /* Obtener los datos guardados del almacenamiento local al cargar la página */
@@ -91,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
     calendario.querySelector(".dias").addEventListener("click", function(event) {
         contenedorHorarios.style.display = "none";
         formularioReserva.style.display = "none";
+        
         const dia = event.target.textContent;
         fechaSeleccionada = new Date(anoActual, mesActual, dia);
         mostrarHorariosDisponibles(fechaSeleccionada);
@@ -138,7 +140,7 @@ horariosDisponibles.forEach(function(horario) {
      /* Evento para seleccionar un horario */
 
      contenedorHorarios.addEventListener("click", function(event) {
-
+        
         if (event.target.classList.contains("horario")) {
             horarioSeleccionado = event.target.textContent;
             const fechaKey = fechaSeleccionada.toLocaleDateString('es-ES');
@@ -156,6 +158,7 @@ horariosDisponibles.forEach(function(horario) {
             } else {
                 mostrarFormularioReserva();
                 contenedorHorarios.style.display= "none";
+                
             }
         }
     });
@@ -193,7 +196,7 @@ horariosDisponibles.forEach(function(horario) {
             // Agregar el mensaje de error al contenedor
             formularioReserva.appendChild(mensajeError);
     
-            return; // Detener el proceso de envío del formulario si el número no es válido
+            return; 
         }
         
          /* Guardar el horario reservado para la fecha seleccionada */
@@ -210,25 +213,21 @@ horariosDisponibles.forEach(function(horario) {
     // Guardar los datos actualizados en el almacenamiento local
     localStorage.setItem("datosReservas", JSON.stringify(horariosReservadosPorFecha));
 
-    let reservaRealizada = document.createElement("div");
-    reservaRealizada.classList.add("reserva-realizada");
-    reservaRealizada.textContent = "¡Reserva realizada con éxito! Nombre: " + nombre + ", Teléfono: " + telefono + ", Fecha: " + fechaSeleccionada.toLocaleDateString('es-ES') + ", Horario: " + horarioSeleccionado;
-    let botonContinuar = document.createElement("button");
-    botonContinuar.classList.add("btn-cont");
-    botonContinuar.textContent = ("Continuar reservando");
-    calendario.appendChild(reservaRealizada);
-    calendario.appendChild(botonContinuar);
-    botonContinuar.addEventListener("click", function (event) {
-        reservaRealizada.style.display = "none";
-        botonContinuar.style.display = "none";
-    });
+    Swal.fire({
+        title: "Sweet!",
+        text: "¡Reserva realizada con éxito! Nombre: " + nombre + ", Teléfono: " + telefono + ", Fecha: " + fechaSeleccionada.toLocaleDateString('es-ES') + ", Horario: " + horarioSeleccionado,
+        imageUrl: "../assets/joel-1.jpg",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "Custom image"
+      });
+
 
 
     /* Limpiar el formulario y ocultarlo después de enviar */
     formularioReserva.reset();
     formularioReserva.style.display = "none";
-    contenedorHorarios.style.display = "noe";
-
+    contenedorHorarios.style.display = "none";
         });
 });
 

@@ -126,16 +126,16 @@ header {
     display: flex;
     object-fit: contain;
 }
-h2 {
+.textos-tarj h2 {
     width: 15%;
     text-align: center;
     z-index: 30;
     opacity: 1;
 }
-h2:first-child {
+.textos-tarj h2:first-child {
     width: 20%;
 }
-h2:last-child {
+.textos-tarj h2:last-child {
     width: 20%;
 }
 .texto-tarjeta {
@@ -253,7 +253,22 @@ footer {
         text-align: center;
         position: relative;
         top: 10%;
-}
+        }
+        .check {
+            position: relative;
+            right: 40%;
+            background-color: grey;
+            border-radius: 20px;
+            a {
+                text-decoration: none;
+                color: rgb(213,4,4);
+                margin: 10px;
+                cursor: pointer;
+                &:hover{
+                    color: black;
+                }
+        }
+    }
 }
 .calendario {
     position: relative;

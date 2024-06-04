@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de turnos</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="encabezado">
+            <a href="">@RETRAIN FITNESS</a>
+            <p href="">MON-SAT 08AM-20PM</p>
+            <a href="">TEL +376 380 376</a>
+        </div>
+        <section class="header">
+            <div class="logo">
+                <img class="logoimg" src="../assets/RETRAINLOGO.jpg" alt="">
+            </div>
+            <nav class="menu-nav">
+                <ul>
+                    <li>
+                        <a href="../index.html">HOME</a>
+                        <a href="./about.html">ABOUT</a>
+                        <a href="./services.html">RESERVAS ON-LINE</a>
+                        <a href="./galery.html">GALERY</a>
+                        <a href="./contacto.html">CONTAC</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <div class="calendario-reservas">
+        <h2>RESERVAS</h2>
+        <div class="controles-reservas">
+            <button id="mesAnterior-res">Anterior</button>
+            <span class="mesActual"></span>
+            <button id="mesSiguiente-res">Siguiente</button>
+        </div>
+        <ul>
+            <li>Dom</li>
+            <li>Lun</li>
+            <li>Mar</li>
+            <li>Mier</li>
+            <li>Jue</li>
+            <li>Vier</li>
+            <li>Sab</li>
+        </ul>
+        <div class="dias-res"></div>
+        
+        <div class="reservas-form">
+            <div id="horarios-click" class="horarios-disponibles"></div>
+            <!-- El siguiente div ahora tiene una clase diferente -->
+            <div class="calendario-reservas-segundo"></div>
+        </div>
+    </div>
+    <script src="../scripts/scriptcheck.js"></script>
+</body>
+</html>
