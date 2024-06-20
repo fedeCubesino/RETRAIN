@@ -22,31 +22,30 @@
                     <li>
                         <a href="../index.html">HOME</a>
                         <a href="./about.html">ABOUT</a>
-                        <a href="./services.html">RESERVAS ON-LINE</a>
-                        <a href="./galery.html">GALERY</a>
-                        <a href="./contacto.html">CONTAC</a>
+                        <a href="./services.html">ONLINE RESERVATIONS</a>
+                        <a href="#footer">CONTAC</a>
                     </li>
                 </ul>
             </nav>
         </section>
     </header>
     <main class="calendario-turnos">
-        <div class="check"><a href="reservas.html">CHEQUEA TUS RESERVAS</a></div>
-        <h1>RESERVA TU TURNO </h1>
+        <div class="check"><a href="reservas.html">CHECK YOUR RESERVATIONS</a></div>
+        <h1>BOOK YOUR APPOINTMENT</h1>
         <div class="calendario">
             <div class="controles">
-                <button id="mesAnterior">Anterior</button>
+                <button id="mesAnterior">Before</button>
                 <span class="mesActual"></span>
-                <button id="mesSiguiente">Siguiente</button>
+                <button id="mesSiguiente">Next</button>
             </div>
             <ul>
-                <li>Dom</li>
-                <li>Lun</li>
-                <li>Mar</li>
-                <li>Mier</li>
-                <li>Jue</li>
-                <li>Vier</li>
-                <li>Sab</li>
+                <li>San</li>
+                <li>Mun</li>
+                <li>Tues</li>
+                <li>Wedn</li>
+                <li>Thurs</li>
+                <li>Frid</li>
+                <li>Sat</li>
             </ul>
             <div class="dias"></div>
             
@@ -54,19 +53,19 @@
                 <div id="horarios-click" class="horarios-disponibles"></div>
                 <div class="contenedorHorarios"></div>
                 <form id="formularioReserva">
-                    <h3>Dejanos tus datos</h3>
-                    <label for="nombre">Nombre:</label>
+                    <h3>LEAVE US YOUR DETAILS</h3>
+                    <label for="nombre">NAME:</label>
                     <input type="text" id="nombre" name="nombre" title="Agrega tu nombre aqui" required>
-                    <label for="telefono">Teléfono:</label>
+                    <label for="telefono">PHONE:</label>
                     <input type="text" id="telefono" name="telefono" title="Agrega tu telefono aqui"required>
-                    <button type="submit">Reservar</button>
+                    <button type="submit">RESERV</button>
                     
                 </form>
                 
             </div>
         </div>
         </main>
-    <footer>
+        <footer id="footer">
         <section class="footer-main">
             <div class="cont">
                 <h4>CONTAC ME</h4>
@@ -79,13 +78,12 @@
                         <input type="text" id="email" class="form-email" placeholder="EMAIL">
                         <input type="text" id="tel" class="form-tel" placeholder="SUBJECT (OPCIONAL)">
                         <input type="text" id="mensaje" class="form-mensaje" placeholder="MESSAGE (OPCIONAL)">
-                        <button>ENVIAR</button>
+                        <button>SEND</button>
                     </div>
                 </div>
         </section>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script src="../scripts/scriptservices.js"></script>
 </body>
 </html>

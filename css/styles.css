@@ -5,10 +5,13 @@
 }
 @import url(../assets/Mont-ExtraLightDEMO.otf);
 
-body {
+html {
+    scroll-behavior: smooth;
+}
+.body-index {
     position: relative;
     width: 100%;
-    height: 2500px;
+    height: 1200px;
 }
 header {
     position: sticky;
@@ -76,13 +79,13 @@ header {
 
 .main-principal {
     width: 100%;
-    height: 1500px;
+    height: 1200px;
 }
 
 .principal {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 600px;
     overflow: hidden;
 }
 .imagenes {
@@ -96,8 +99,44 @@ header {
         height: 100%;
     }
 }
-
-
+.img-cont {
+    width: 100%;
+    overflow: hidden;
+}
+#images {
+    position: relative;
+    width: 101%;
+    height: 600px; 
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    
+}
+  #images div {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    scroll-behavior: smooth;
+}
+.div-img {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+.div-img h3 {
+    font-size: 24px;
+    color: aliceblue;
+    text-align: center;
+    justify-self: center;
+}
+  
 
 .tarjeta {
     width: 15%;
@@ -111,6 +150,7 @@ header {
         position: relative;
         top: 40%;
         text-align: center;
+        font-weight: bold;
     }
 }
 .tarjeta:first-child {
@@ -127,6 +167,7 @@ header {
     bottom: 30%;
     display: flex;
     object-fit: contain;
+    cursor: pointer;
 }
 .textos-tarj h2 {
     width: 15%;
@@ -154,10 +195,6 @@ header {
     bottom: 10%;
 }
 
-/* Agrega una clase para los h2 que estarán siempre en color aliceblue */
-
-
-/* Agrega una clase para los h2 dentro de las tarjetas que estarán en color negro */
 
 @keyframes anime {
     0% { opacity: 0; }
@@ -446,7 +483,7 @@ button:hover {
         justify-self: center;
         text-align: center;
         font-size: 50px;
-        background-color:rgb(69, 66, 70); ;
+        background-color:rgb(69, 66, 70); 
     }
     .controles-reservas {
         display: flex;
@@ -503,10 +540,19 @@ button:hover {
     }
     
    .reservas-dia {
+    width: 80px;
     margin: 10px;
+    color: red;
+    background-color: black;
+    text-align: center;
+   }
    }
    .reserva-elem {
+    width: 50%;
     margin: 30px;
+    color: red;
+    background-color: black;
+    text-transform: uppercase;
    }
     .reserv {
         position: absolute;
@@ -516,7 +562,9 @@ button:hover {
         text-align: center;
         z-index: 10;
     }
-}
+        .disponible {
+            background-color: rgb(149, 224, 139, 0.5);
+        }
 
 .header-about {
     position: relative;
@@ -577,7 +625,7 @@ button:hover {
         scale: .6;
         animation: fade-in linear forwards;
         animation-timeline: view();
-        animation-range: entry 30px; }
+        animation-range: entry 20px; }
     div {
         display: flex;
         flex-direction: column;
@@ -587,7 +635,7 @@ button:hover {
         scale: .6;
         animation: fade linear forwards;
         animation-timeline: view();
-        animation-range: entry 30px;
+        animation-range: entry 20px;
         h3 {
             font-size: 28px;
             margin: 10px;

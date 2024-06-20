@@ -1,58 +1,82 @@
 document.addEventListener("DOMContentLoaded", function() {
     const tarjetas = document.querySelectorAll('.tarjeta');
-    const imagenes = document.querySelectorAll(".imagen");
+    const textosTarj = document.querySelectorAll('.textos-tarj h2');
+    const imagenes = document.querySelectorAll('.imagen');
     const tarjetasCount = tarjetas.length;
     const imagenesCount = imagenes.length;
     let currentIndex = 0;
-    var index = 0;
+    let animationRunning = true;
+    let clickTimeout;
 
     function startAnimation() {
-        
-        // Oculta todas las tarjetas
+        if (!animationRunning) return;
+
         tarjetas.forEach((tarjeta) => {
             tarjeta.style.opacity = 0;
-            tarjeta.style.transition = 'opacity 1.5s ease'; 
         });
-    
-        // Muestra la tarjeta actual
-        tarjetas[currentIndex].style.opacity = 0.8;
-    
-        // Actualiza los colores de los h2
-        const textos = document.querySelectorAll('.textos-tarj h2');
 
-textos.forEach((texto, index) => {
-    
-    if (index === currentIndex) {
-        texto.classList.remove('texto'); 
-        texto.classList.add('texto-tarjeta'); 
-    } else {
-        texto.classList.add('texto'); 
-        texto.classList.remove('texto-tarjeta'); 
-    }
+        tarjetas[currentIndex].style.opacity = 0.8;
+        textosTarj.forEach((texto, idx) => {
+            if (idx === currentIndex) {
+                texto.classList.remove('texto');
+                texto.classList.add('texto-tarjeta');
+            } else {
+                texto.classList.add('texto');
+                texto.classList.remove('texto-tarjeta');
+            }
         });
-    
+
+        imagenes.forEach((imagen) => {
+            imagen.style.opacity = 0;
+            imagen.style.transform = 'scale(1.2)';
+        });
+
+        imagenes[currentIndex].style.opacity = 1;
+        imagenes[currentIndex].style.transform = 'scale(1)';
+
         currentIndex = (currentIndex + 1) % tarjetasCount;
         setTimeout(startAnimation, 5000); 
     }
-    
 
-    
     startAnimation();
 
-    function cambiarImagen() {
-        imagenes.forEach((imagen) => {
-            imagen.style.opacity = 0;
-            imagen.style.transition = 'opacity 0.5s ease, transform 1s ease';
-            imagen.style.transform = 'scale(1.2)';
+    textosTarj.forEach((texto, i) => {
+        texto.addEventListener('click', function() {
+            clearTimeout(clickTimeout); 
+            animationRunning = false; 
+
+            /* Mostrar la tarjeta y el texto correspondientes al hacer clic */
+            tarjetas.forEach((tarjeta, idx) => {
+                tarjeta.style.opacity = 0;
+                if (idx === i) {
+                    tarjeta.classList.add('active');
+                    tarjeta.style.opacity = 0.8;
+                }
+            });
+
+            textosTarj.forEach((t, idx) => {
+                if (idx === i) {
+                    t.classList.remove('texto');
+                    t.classList.add('texto-tarjeta');
+                } else {
+                    t.classList.add('texto');
+                    t.classList.remove('texto-tarjeta');
+                }
+            });
+
+            imagenes.forEach((imagen, idx) => {
+                imagen.style.opacity = 0;
+                imagen.style.transform = 'scale(1.2)';
+                if (idx === i) {
+                    imagen.style.opacity = 1;
+                    imagen.style.transform = 'scale(1)';
+                }
+            });
+
+            clickTimeout = setTimeout(() => {
+                animationRunning = true;
+                startAnimation();
+            }, 10000); 
         });
-        imagenes[index].style.opacity = 1;
-        imagenes[index].style.transition = 'opacity 0.5s ease, transform 1s ease'; 
-        imagenes[index].style.transform = 'scale(1)'; 
-        // Mostrar la primera imagen
-        index = (index + 1) % imagenesCount;
-        
-            // Inicia la animación de la próxima tarjeta después de un breve retraso
-            setTimeout(cambiarImagen, 5000); 
-    }
-    cambiarImagen();
+    });
 });

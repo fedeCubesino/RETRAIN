@@ -1,15 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     const calendario = document.querySelector(".calendario-reservas");
     const mesActualElemento = document.querySelector(".mesActual");
-    const contenedorHorarios = document.querySelector(".horarios-disponibles");
-    
+    let reservaElemento;
     let anoActual;
     let mesActual;
     let fechaSeleccionada;
-    let horarioSeleccionado;
     let horariosReservadosPorFecha = {};  
-    let tituloDia;
-    let reservaElemento;
     const calendarioReservas = document.querySelector(".calendario-reservas");
     if (localStorage.getItem("datosReservas")) {
         const datosReservas = JSON.parse(localStorage.getItem("datosReservas"));
@@ -29,7 +25,14 @@ document.addEventListener("DOMContentLoaded", function() {
         const ultimoDiaDelMes = new Date(ano, mes + 1, 0);
         const diasEnMes = ultimoDiaDelMes.getDate();
         const diasElemento = calendario.querySelector(".dias-res");
-        diasElemento.innerHTML = "";   /* Limpia los días existentes antes de generar los nuevos */
+        diasElemento.innerHTML = "";   
+        /* Limpia los días existentes y las reservas antes de generar los nuevos */
+        
+        const titulosAnteriores = document.querySelectorAll(".reservas-dia");
+        titulosAnteriores.forEach(titulo => titulo.remove());
+
+        const reservasAnteriores = document.querySelectorAll(".reserva-elem");
+        reservasAnteriores.forEach(reserva => reserva.remove());
         
         mesActualElemento.textContent = meses[mes] + " " + ano;
 
@@ -45,8 +48,16 @@ document.addEventListener("DOMContentLoaded", function() {
             diaElemento.classList.add("dia");
             diaElemento.textContent = i;
             diasElemento.appendChild(diaElemento);
+        const fecha = new Date(ano, mes, i);
+        const fechaNormalizada = fecha.toLocaleDateString();
+
+  /* Verificar si hay horarios disponibles para este día */
+  
+        if (horariosReservadosPorFecha[fechaNormalizada] && horariosReservadosPorFecha[fechaNormalizada].length > 0) {
+        diaElemento.classList.add("disponible");
         }
     }
+}
 
     document.getElementById("mesAnterior-res").addEventListener("click", function() {
         mesActual--;
@@ -66,21 +77,19 @@ document.addEventListener("DOMContentLoaded", function() {
         generarCalendario(anoActual, mesActual);
     });
 
+
     calendario.querySelector(".dias-res").addEventListener("click", function(event) {
         const dia = event.target.textContent;
         fechaSeleccionada = new Date(anoActual, mesActual, dia);
-
         
         mostrarReservasEnCalendario(fechaSeleccionada);
     });
     
     function mostrarReservasEnCalendario(fechaSeleccionada) {
-        
-    
         const fechaSeleccionadaStr = fechaSeleccionada.toLocaleDateString('es-ES');
-        // Eliminar los elementos de título y reservas anteriores
-    const titulosAnteriores = document.querySelectorAll(".reservas-dia");
-    titulosAnteriores.forEach(titulo => titulo.remove());
+     /* Eliminar los elementos de título y reservas anteriores */
+        const titulosAnteriores = document.querySelectorAll(".reservas-dia");
+        titulosAnteriores.forEach(titulo => titulo.remove());
 
     const reservasAnteriores = document.querySelectorAll(".reserva-elem");
     reservasAnteriores.forEach(reserva => reserva.remove());
