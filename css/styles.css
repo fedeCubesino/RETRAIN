@@ -488,6 +488,7 @@ button:hover {
         justify-self: center;
         text-align: center;
         font-size: 50px;
+        color: #f00808;
         background-color:rgb(69, 66, 70); 
     }
     .controles-reservas {
@@ -497,17 +498,19 @@ button:hover {
         .mesActual {
             color: aliceblue;
             font-size: 28px;
-        }
+            }
         #mesAnterior-res {
             justify-self: center;
             width: 100px;
             height: 30px;
+            background-color: darkslategrey;
             border-radius: 50% 10% 10% 50%;
         }
         
         #mesSiguiente-res {
             justify-self:center;
             width: 100px;
+            background-color: darkslategrey;
             border-radius: 10% 50% 50% 10%;
         }
     }
@@ -604,7 +607,7 @@ button:hover {
                     margin: 10px;
                     cursor: pointer;
                     &:hover{
-                        color: black;
+                        color: aliceblue;
                     }
                 }
             }

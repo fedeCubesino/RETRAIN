@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
     anoActual = hoy.getFullYear();
     mesActual = hoy.getMonth();
 
-    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    const meses = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    ;
 
     generarCalendario(anoActual, mesActual);
 
@@ -85,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const horariosDisponibles = ["09:00hs", "10:00hs", "11:00hs", "12:00hs", "13:00hs", "14:00hs", "15:00hs"];
         const eligeHorario = document.createElement("div");
-        eligeHorario.textContent = "ELEGIR UN HORARIO PARA " + fecha.toLocaleDateString('es-ES');
+        eligeHorario.textContent = "CHOOSE A TIME SLOT FOR " + fecha.toLocaleDateString('es-ES');
         eligeHorario.style.fontWeight = "bold";
         contenedorHorarios.appendChild(eligeHorario);
 
@@ -115,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (horarioReservado) {
                 const reserv = document.createElement("div");
                 reserv.classList.add("reserv");
-                reserv.textContent = "El horario seleccionado no está disponible. Por favor elige otro.";
+                reserv.textContent = "The selected time slot is not available. Please choose another one.";
                 reserv.style.color = "red";
                 contenedorHorarios.appendChild(reserv);
                 setTimeout(() => {
@@ -145,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!regexTelefonoEuropeo.test(telefono)) {
             const mensajeError = document.createElement("div");
             mensajeError.style.display = "flex";
-            mensajeError.textContent = "El número de teléfono ingresado no es válido. Por favor ingresa un número válido.";
+            mensajeError.textContent = "The phone number entered is not valid. Please enter a valid number.";
             mensajeError.style.color = "red";
             mensajeError.classList.add("mensaje-error");
             telefonoInput.addEventListener("click", function(event) {
@@ -173,8 +174,8 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem("datosReservas", JSON.stringify(horariosReservadosPorFecha));
 
         Swal.fire({
-            title: "¡Perfecto!",
-            text: "¡Reserva realizada exitosamente! Nombre: " + nombre + ", Teléfono: " + telefono + ", Fecha: " + fechaSeleccionada.toLocaleDateString('es-ES') + ", Horario: " + horarioSeleccionado,
+            title: "¡Perfect!",
+            text: "Reservation successfully made! Name: " + nombre + ", Phone: " + telefono + ", Date: " + fechaSeleccionada.toLocaleDateString('es-ES') + ", Horario: " + horarioSeleccionado,
             imageUrl: "../assets/joel-1.jpg",
             imageWidth: 400,
             imageHeight: 200,
@@ -194,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function obtenerClima(ciudad) {
     const apiKey = 'd6aa396a076d72edeeb89d5496d30ab4';
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(ciudad)}&appid=${apiKey}&units=metric&lang=es`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(ciudad)}&appid=${apiKey}&units=metric&lang=en`;
 
     fetch(url)
         .then(response => {
@@ -227,28 +228,28 @@ function mostrarInfoClima(data) {
     const climaElemento = document.getElementById('clima');
     if (climaElemento) {
         climaElemento.innerHTML = `
-            <h2>Clima en ${ciudad}</h2>
+            <h2>Weather in ${ciudad}</h2>
             <img src="${icono}" alt="${descripcion}">
             <p>${temperatura} °C</p>
             <p>${descripcion}</p>
-            <p>Humedad: ${humedad}%</p>
-            <p>Presión: ${presion} hPa</p>
-            <p>Velocidad del viento: ${velocidadViento} m/s</p>
-            <p>Dirección del viento: ${direccionViento}°</p>
-            <p>Nubes: ${nubes}%</p>
+            <p>Humidity: ${humedad}%</p>
+            <p>Pressure: ${presion} hPa</p>
+            <p>Wind Speed: ${velocidadViento} m/s</p>
+            <p>Wind Direction: ${direccionViento}°</p>
+            <p>Cloudiness: ${nubes}%</p>
         `;
     } else {
-        console.error('Elemento con id "clima" no encontrado');
+        console.error("Element with id 'clima' not found");
     }
 }
 function obtenerForecast(ciudad) {
     const apiKey = 'd6aa396a076d72edeeb89d5496d30ab4';
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(ciudad)}&appid=${apiKey}&units=metric&lang=es`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(ciudad)}&appid=${apiKey}&units=metric&lang=en`;
 
     fetch(url)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Error de red al obtener el pronóstico del clima');
+                throw new Error("Network error while fetching weather forecast");
             }
             return response.json();
         })
@@ -261,7 +262,7 @@ function obtenerForecast(ciudad) {
 }
 function mostrarForecast(data) {
     const forecastElemento = document.getElementById('forecast');
-    forecastElemento.innerHTML = '<h2>Pronóstico para los próximos días</h2>';
+    forecastElemento.innerHTML = '<h2>Forecast for the upcoming days</h2>';
     const listaPronostico = data.list.filter(item => item.dt_txt.endsWith('12:00:00'));
 
     listaPronostico.forEach(pronostico => {
@@ -277,7 +278,7 @@ function mostrarForecast(data) {
             <h3>${diaSemana}</h3>
             <img src="${icono}" alt="${descripcion}">
             <p>${descripcion}</p>
-            <p>Temperatura: ${temperatura} °C</p>
+            <p> ${temperatura} °C</p>
         `;
         forecastElemento.appendChild(diaForecast);
     });
