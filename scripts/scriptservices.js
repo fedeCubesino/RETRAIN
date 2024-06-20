@@ -230,7 +230,7 @@ function mostrarInfoClima(data) {
         climaElemento.innerHTML = `
             <h2>Weather in ${ciudad}</h2>
             <img src="${icono}" alt="${descripcion}">
-            <p>${temperatura} °C</p>
+            <h3>${temperatura} °C</h3>
             <p>${descripcion}</p>
             <p>Humidity: ${humedad}%</p>
             <p>Pressure: ${presion} hPa</p>
@@ -267,7 +267,7 @@ function mostrarForecast(data) {
 
     listaPronostico.forEach(pronostico => {
         const fecha = new Date(pronostico.dt * 1000);
-        const diaSemana = fecha.toLocaleDateString('es-ES', { weekday: 'long' });
+        const diaSemana = fecha.toLocaleDateString('en-EN', { weekday: 'long' });
         const temperatura = pronostico.main.temp;
         const descripcion = pronostico.weather[0].description;
         const icono = `https://openweathermap.org/img/wn/${pronostico.weather[0].icon}.png`;
@@ -277,8 +277,8 @@ function mostrarForecast(data) {
         diaForecast.innerHTML = `
             <h3>${diaSemana}</h3>
             <img src="${icono}" alt="${descripcion}">
-            <p>${descripcion}</p>
             <p> ${temperatura} °C</p>
+            <p>${descripcion}</p>
         `;
         forecastElemento.appendChild(diaForecast);
     });

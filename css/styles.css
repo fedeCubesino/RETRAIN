@@ -723,12 +723,12 @@ button:hover {
                         font-size: 24px;
                         color: #f00808;
                     }
+                    #clima h3 {
+                        font-size: 40px;
+                    }
                     #clima img {
                         width: 120px;
                         height: 120px;
-                    }
-                    #clima p:first-child {
-                        font-size: 30px;
                     }
                     #clima p {
                         text-transform: capitalize;
@@ -736,10 +736,11 @@ button:hover {
                         font-size: 20px;
                         font-weight: bold;
                     }
+                    
                     #forecast {
                         position: relative;
                         display: flex;
-                        justify-content: space-around;
+                        justify-content: center;
                         h2 {
                             position: absolute;
                             top: 5%;
@@ -756,8 +757,10 @@ button:hover {
                         border-radius: 8px;
                         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                         margin-top: 10%;
+                        width: 150px;
                         max-height: 200px;
-                        margin-left: 2px;
+                        margin-left: 8px;
                         h3 {text-transform: capitalize;}
                         }
+                        p {font-weight: bold;}
                     }
