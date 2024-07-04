@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const mesActualElemento = document.querySelector(".mesActual");
     const contenedorHorarios = document.querySelector(".horarios-disponibles");
     const formularioReserva = document.getElementById("formularioReserva");
+    const hamburger = document.querySelector('.hamburger-menu');
+    const menuNav = document.querySelector('.menu-nav');
+    let lastScrollTop = 0;
     let anoActual;
     let mesActual;
     let fechaSeleccionada;
@@ -19,8 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     anoActual = hoy.getFullYear();
     mesActual = hoy.getMonth();
 
-    const meses = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    ;
+    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
     generarCalendario(anoActual, mesActual);
 
@@ -28,22 +30,26 @@ document.addEventListener("DOMContentLoaded", function() {
         const primerDiaDelMes = new Date(ano, mes, 1);
         const ultimoDiaDelMes = new Date(ano, mes + 1, 0);
         const diasEnMes = ultimoDiaDelMes.getDate();
+        const primerDiaSemana = primerDiaDelMes.getDay(); // Día de la semana del primer día del mes
 
         const diasElemento = calendario.querySelector(".dias");
         diasElemento.innerHTML = ""; // Limpia los días existentes antes de generar los nuevos
 
         mesActualElemento.textContent = meses[mes] + " " + ano;
 
-        // Calendario con los días del mes utilizando map
-        const dias = Array.from({ length: diasEnMes }, (_, index) => index + 1);
-        const diasHtml = dias.map(dia => {
+        // Rellenar los días del mes
+        for (let i = 0; i < primerDiaSemana; i++) {
+            const diaVacio = document.createElement("div");
+            diaVacio.classList.add("dia-vacio");
+            diasElemento.appendChild(diaVacio);
+        }
+
+        for (let dia = 1; dia <= diasEnMes; dia++) {
             const diaElemento = document.createElement("div");
             diaElemento.classList.add("dia");
             diaElemento.textContent = dia;
-            return diaElemento;
-        });
-
-        diasElemento.append(...diasHtml);
+            diasElemento.appendChild(diaElemento);
+        }
     }
 
     document.getElementById("mesAnterior").addEventListener("click", function() {
@@ -78,7 +84,19 @@ document.addEventListener("DOMContentLoaded", function() {
         contenedorHorarios.style.display = "flex";
     });
 
-    // Mostrar las opciones de horarios
+    hamburger.addEventListener('click', () => {
+        menuNav.classList.toggle('active');
+    });
+
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            menuNav.classList.remove('active');
+        } 
+        lastScrollTop = scrollTop;
+    });
+
     function mostrarHorariosDisponibles(fecha) {
         contenedorHorarios.innerHTML = "";
 
@@ -86,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const horariosDisponibles = ["09:00hs", "10:00hs", "11:00hs", "12:00hs", "13:00hs", "14:00hs", "15:00hs"];
         const eligeHorario = document.createElement("div");
-        eligeHorario.textContent = "CHOOSE A TIME SLOT FOR " + fecha.toLocaleDateString('es-ES');
+        eligeHorario.textContent = "ELIGE UNA FRANJA HORARIA PARA " + fecha.toLocaleDateString('es-ES');
         eligeHorario.style.fontWeight = "bold";
         contenedorHorarios.appendChild(eligeHorario);
 
@@ -116,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (horarioReservado) {
                 const reserv = document.createElement("div");
                 reserv.classList.add("reserv");
-                reserv.textContent = "The selected time slot is not available. Please choose another one.";
+                reserv.textContent = "La franja horaria seleccionada no está disponible. Por favor, elija otra.";
                 reserv.style.color = "red";
                 contenedorHorarios.appendChild(reserv);
                 setTimeout(() => {
@@ -146,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!regexTelefonoEuropeo.test(telefono)) {
             const mensajeError = document.createElement("div");
             mensajeError.style.display = "flex";
-            mensajeError.textContent = "The phone number entered is not valid. Please enter a valid number.";
+            mensajeError.textContent = "El número de teléfono ingresado no es válido. Por favor, introduzca un número válido.";
             mensajeError.style.color = "red";
             mensajeError.classList.add("mensaje-error");
             telefonoInput.addEventListener("click", function(event) {
@@ -158,7 +176,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         const fechaKey = fechaSeleccionada.toLocaleDateString('es-ES');
-        horariosReservadosPorFecha[fechaKey] = horariosReservadosPorFecha[fechaKey]?.reduce((accum, reserva) => {
+        // Asegúrate de que horariosReservadosPorFecha[fechaKey] esté inicializado
+        if (!horariosReservadosPorFecha[fechaKey]) {
+            horariosReservadosPorFecha[fechaKey] = [];
+        }
+
+        horariosReservadosPorFecha[fechaKey] = horariosReservadosPorFecha[fechaKey].reduce((accum, reserva) => {
             if (reserva.horario !== horarioSeleccionado) {
                 accum.push(reserva);
             }
@@ -174,8 +197,8 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem("datosReservas", JSON.stringify(horariosReservadosPorFecha));
 
         Swal.fire({
-            title: "¡Perfect!",
-            text: "Reservation successfully made! Name: " + nombre + ", Phone: " + telefono + ", Date: " + fechaSeleccionada.toLocaleDateString('es-ES') + ", Horario: " + horarioSeleccionado,
+            title: "¡Perfecto!",
+            text: "Reserva realizada con éxito. Nombre: " + nombre + ", Teléfono: " + telefono + ", Fecha: " + fechaSeleccionada.toLocaleDateString('es-ES') + ", Horario: " + horarioSeleccionado,
             imageUrl: "../assets/joel-1.jpg",
             imageWidth: 400,
             imageHeight: 200,
@@ -186,16 +209,14 @@ document.addEventListener("DOMContentLoaded", function() {
         formularioReserva.style.display = "none";
         contenedorHorarios.style.display = "none";
     });
-    
-});
-document.addEventListener("DOMContentLoaded", function() {
+
     obtenerClima('Andorra la Vella');
     obtenerForecast('Andorra la Vella'); 
 });
 
 function obtenerClima(ciudad) {
     const apiKey = 'd6aa396a076d72edeeb89d5496d30ab4';
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(ciudad)}&appid=${apiKey}&units=metric&lang=en`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(ciudad)}&appid=${apiKey}&units=metric&lang=es`;
 
     fetch(url)
         .then(response => {
@@ -205,7 +226,6 @@ function obtenerClima(ciudad) {
             return response.json();
         })
         .then(data => {
-            console.log('Datos obtenidos del clima:', data);  /* Verificar los datos obtenidos */
             mostrarInfoClima(data);
         })
         .catch(error => {
@@ -214,42 +234,27 @@ function obtenerClima(ciudad) {
 }
 
 function mostrarInfoClima(data) {
+    const contenedorClima = document.getElementById("clima");
 
-    const ciudad = data.name;
-    const temperatura = data.main.temp;
-    const descripcion = data.weather[0].description;
-    const icono = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-    const humedad = data.main.humidity;
-    const presion = data.main.pressure;
-    const velocidadViento = data.wind.speed;
-    const direccionViento = data.wind.deg;
-    const nubes = data.clouds.all;
-
-    const climaElemento = document.getElementById('clima');
-    if (climaElemento) {
-        climaElemento.innerHTML = `
-            <h2>Weather in ${ciudad}</h2>
-            <img src="${icono}" alt="${descripcion}">
-            <h3>${temperatura} °C</h3>
-            <p>${descripcion}</p>
-            <p>Humidity: ${humedad}%</p>
-            <p>Pressure: ${presion} hPa</p>
-            <p>Wind Speed: ${velocidadViento} m/s</p>
-            <p>Wind Direction: ${direccionViento}°</p>
-            <p>Cloudiness: ${nubes}%</p>
-        `;
-    } else {
-        console.error("Element with id 'clima' not found");
+    if (!contenedorClima) {
+        console.error("Elemento con id 'clima' no encontrado.");
+        return;
     }
+
+    contenedorClima.innerHTML = `
+        <p>Temperatura: ${data.main.temp}°C</p>
+        <p>Clima: ${data.weather[0].description}</p>
+    `;
 }
+
 function obtenerForecast(ciudad) {
     const apiKey = 'd6aa396a076d72edeeb89d5496d30ab4';
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(ciudad)}&appid=${apiKey}&units=metric&lang=en`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(ciudad)}&appid=${apiKey}&units=metric&lang=es`;
 
     fetch(url)
         .then(response => {
             if (!response.ok) {
-                throw new Error("Network error while fetching weather forecast");
+                throw new Error('Error de red al intentar obtener el pronóstico');
             }
             return response.json();
         })
@@ -257,29 +262,30 @@ function obtenerForecast(ciudad) {
             mostrarForecast(data);
         })
         .catch(error => {
-            console.error('Error al obtener el pronóstico del clima:', error);
+            console.error('Error al obtener el pronóstico:', error);
         });
 }
+
 function mostrarForecast(data) {
-    const forecastElemento = document.getElementById('forecast');
-    forecastElemento.innerHTML = '<h2>Forecast for the upcoming days</h2>';
-    const listaPronostico = data.list.filter(item => item.dt_txt.endsWith('12:00:00'));
+    const contenedorForecast = document.getElementById("forecast");
 
-    listaPronostico.forEach(pronostico => {
-        const fecha = new Date(pronostico.dt * 1000);
-        const diaSemana = fecha.toLocaleDateString('en-EN', { weekday: 'long' });
-        const temperatura = pronostico.main.temp;
-        const descripcion = pronostico.weather[0].description;
-        const icono = `https://openweathermap.org/img/wn/${pronostico.weather[0].icon}.png`;
+    if (!contenedorForecast) {
+        console.error("Elemento con id 'forecast' no encontrado.");
+        return;
+    }
 
-        const diaForecast = document.createElement('div');
-        diaForecast.classList.add('day-forecast');
-        diaForecast.innerHTML = `
-            <h3>${diaSemana}</h3>
-            <img src="${icono}" alt="${descripcion}">
-            <p> ${temperatura} °C</p>
-            <p>${descripcion}</p>
+    contenedorForecast.innerHTML = "";
+    
+    for (let i = 0; i < data.list.length; i += 8) {
+        const forecast = data.list[i];
+        const date = new Date(forecast.dt * 1000);
+        const dateString = date.toLocaleDateString('es-ES');
+        const forecastElement = document.createElement("div");
+        forecastElement.innerHTML = `
+            <p>Fecha: ${dateString}</p>
+            <p>Temperatura: ${forecast.main.temp}°C</p>
+            <p>Clima: ${forecast.weather[0].description}</p>
         `;
-        forecastElemento.appendChild(diaForecast);
-    });
+        contenedorForecast.appendChild(forecastElement);
+    }
 }

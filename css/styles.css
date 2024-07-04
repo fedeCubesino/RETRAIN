@@ -13,8 +13,12 @@ html {
     width: 100%;
     height: 1200px;
 }
+.body-about {
+    position: relative;
+    width: 100%;
+}
 header {
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 150;
 }
@@ -55,9 +59,10 @@ header {
         }
     }
         .menu-nav {
-        position: absolute;
-        left: 55%;
-        ul {
+            position: absolute;
+            left: 55%;
+            ul {
+            display: flex;
             list-style: none;
             li {
                 gap: 30px;
@@ -76,7 +81,20 @@ header {
 
 }
 
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
 
+.hamburger-menu span {
+    width: 100%;
+    height: 3px;
+    background-color: rgb(213,4,4);
+}
 .main-principal {
     width: 100%;
     height: 1200px;
@@ -98,6 +116,29 @@ header {
         width: 100%;
         height: 100%;
     }
+}
+.barra-de-progresos {
+    position: absolute;
+    bottom: 1%;
+    left: 35%;
+    display: flex;
+}
+.progress-bar {
+    width: 40px;
+    height: 5px;
+    background: #e0e0e0;
+    margin: 20px auto;
+    border-radius: 1px;
+    margin: 3px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background: #1d2221;
+    transition: width 5s linear;
 }
 .img-cont {
     width: 100%;
@@ -137,7 +178,14 @@ header {
     justify-self: center;
 }
   
-
+.tarjetas {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    z-index: 10;
+    position: absolute;
+    bottom: 10%;
+}
 .tarjeta {
     width: 15%;
     height: 250px;
@@ -161,7 +209,7 @@ header {
 }
 .textos-tarj {
     position: absolute;
-    color: aliceblue;
+    color: black;
     z-index: 20;
     width: 100%;
     bottom: 30%;
@@ -181,32 +229,27 @@ header {
 .textos-tarj h2:last-child {
     width: 20%;
 }
+.texto {
+    color: aliceblue;
+}
 .texto-tarjeta {
-    color: rgb(8, 8, 8);
+    color: black;
     opacity: 1;
     z-index: 100;
 }
-.tarjetas {
-    width: 100%;
-    height: 35%;
-    display: flex;
-    z-index: 10;
-    position: absolute;
-    bottom: 10%;
+#miVideo {
+    width: 70%;
+    height: 100%;
 }
 
 
-@keyframes anime {
-    0% { opacity: 0; }
-    5% { opacity: 1; background-color: aliceblue; }
-    95% { opacity: 1; background-color: aliceblue; }
-    100% { opacity: 0; }
-}
 
 
-footer {
+
+#footer {
     width: 100%;
     height: 400px;
+    position: relative;
     background: rgb(213,4,4);
     background: radial-gradient(circle, rgba(213,4,4,0.9668242296918768) 52%, rgba(121,17,39,0.9023984593837535) 99%);
     .footer-main {
@@ -242,7 +285,7 @@ footer {
                 flex-direction: column;
                 top: 50px;
                 left: 0px;
-                width: 350px;
+                width: 90%;
                 height: 250px;
                 input {
                     position: relative;
@@ -297,7 +340,7 @@ footer {
         .check {
             position: relative;
             height: 50px;
-            right: 40%;
+            right: 20%;
             background-color: grey;
             border-radius: 20px;
             display: flex;
@@ -583,9 +626,9 @@ button:hover {
     height: 100px;
     background-color: black;
     gap: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     .logo {
-        width: 300px;
+        width: 30%;
         height: 200px;
         position: absolute;
         right: 50%;
@@ -599,6 +642,7 @@ button:hover {
         left: 55%;
         ul {
             list-style: none;
+            display: flex;
             li {
                 gap: 30px;
                 a {
@@ -615,43 +659,49 @@ button:hover {
     }
 
 }
-.princ-about {
+.main-about {
     width: 100%;
-    height: 3000px;
-    object-fit: cover;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 100px repeat(6, 1fr);
-    background-color: black;
-    h2 {
-        color: aliceblue;
-        text-align: center;
-        grid-column: 1/3;
-        grid-row: 1;}
-    img {
-        opacity: 0;
-        scale: .6;
-        animation: fade-in linear forwards;
-        animation-timeline: view();
-        animation-range: entry 20px; }
-    div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        scale: .6;
-        animation: fade linear forwards;
-        animation-timeline: view();
-        animation-range: entry 20px;
-        h3 {
-            font-size: 28px;
-            margin: 10px;
+    height: 4220px;
+    .princ-about {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 100px repeat(6, 1fr);
+        background-color: black;
+        h2 {
+            color: aliceblue;
+            text-align: center;
+            justify-self: center;
+            align-self: center;
+            grid-column: 2/3;
+            grid-row: 1/2;}
+        img {
+            opacity: 0;
+            scale: .6;
+            animation: fade-in linear forwards;
+            animation-timeline: view();
+            animation-range: entry 20px; }
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            scale: .6;
+            animation: fade linear forwards;
+            animation-timeline: view();
+            animation-range: entry 20px;
+            h3 {
+                font-size: 28px;
+                margin: 10px;
+            }
+            p {
+                width: 90%;
+                font-size: 24px;
+                margin: 10px;}
         }
-        p {
-            width: 350px;
-            font-size: 24px;
-            margin: 10px;}
     }
 }
 
@@ -667,42 +717,44 @@ button:hover {
       .descr-1 {grid-column: 1 / 2;
     grid-row: 2 / 3;width: 100%;
     height: 100%;color: aliceblue;}
-      .descr-2 {grid-column: 2 / 3;
+      .descr-2 {grid-column: 3 / 4;
     grid-row: 3 / 4;width: 100%;
     height: 100%;color: aliceblue;}
       .descr-3 {grid-column: 1 / 2;
     grid-row: 4 / 5;width: 100%;
     height: 100%;color: aliceblue;}
-      .descr-4 {grid-column: 2 / 3;
+      .descr-4 {grid-column: 3 / 4;
     grid-row: 5 / 6;width: 100%;
     height: 100%;color: aliceblue;}
       .descr-5 {grid-column: 1 / 2;
     grid-row: 6 / 7;width: 100%;
     height: 100%;color: aliceblue;}
-      .descr-6 {grid-column: 1 / 3;
+      .descr-6 {grid-column: 2 / 3;
     grid-row: 7 / 8;width: 100%;
     height: 100%;color: aliceblue;}
-.img-ab-1 {grid-column: 2 / 3;
+.img-ab-1 {grid-column: 2 / 4;
     grid-row: 2 / 3;width: 100%;
-    height: 100%;}
-    .img-ab-2 {grid-column: 1 / 2;
+    height: 100%;
+    }
+    .img-ab-2 {grid-column: 1 / 3;
         grid-row: 3 / 4;width: 100%;
-        height: 100%;}
-        .img-ab-3 {grid-column: 2 / 3;
+        height: 100%;
+        }
+        .img-ab-3 {grid-column: 2 / 4;
             grid-row: 4 / 5;width: 100%;
             height: 100%;}
-            .img-ab-4 {grid-column: 1 / 2;
+            .img-ab-4 {grid-column: 1 / 3;
                 grid-row: 5 / 6;width: 100%;
                     height: 100%;}
-                .img-ab-5 {grid-column: 2 / 3;
+                .img-ab-5 {grid-column: 2 / 4;
                     grid-row: 6 / 7;width: 100%;
                 height: 100%;}
-                    .img-ab-6 {grid-column: 2 / 3;
+                    .img-ab-6 {grid-column: 3 / 4;
                         grid-row: 7 / 8;
-                    width: 50%;height: 100%;margin-left: 50%;}
+                    width: 100%;height: 100%;}
                         .img-ab-7 {grid-column: 1 / 2;
                             grid-row: 7 / 8;
-                        width: 50%; height: 100%;
+                        width: 100%; height: 100%;
                     }
                     .weather {
                         width: 100%;
@@ -764,3 +816,331 @@ button:hover {
                         }
                         p {font-weight: bold;}
                     }
+                    @media (max-width: 768px) {
+                        .header {
+                            display: flex;
+                            position: relative;
+                            align-items: center;
+                            .logo {
+                                width: 200px;
+                                height: 80px;
+                                left: 25%;
+                            }
+                            .menu-nav {
+                                display: flex;
+                                ul {
+                                    position: relative;
+                                    right: 5%;
+                                    align-items: center;
+                                    display: flex;
+                                    flex-direction: row;
+                                    height: 150px;
+                                    li {
+                                        margin: 5px;
+                                        padding: 2px;
+                                       
+                                    }
+                                }
+                            }
+                        }
+                        .header-about {
+                            display: flex;
+                            align-items: center;
+                            
+                            .logo {
+                                width: 30%;
+                                height: 100%;
+                                left: 25%;
+                            }
+                            .menu-nav {
+                                ul {
+                                    background-color: black;
+                                    display: flex;
+                                    
+                                    z-index: 1000;
+                                    align-items: center;
+                                    li {
+                                        margin: 5px;
+                                    }
+                                }
+                            }
+                            .menu-nav.active{
+                                background-color: black;
+                            }
+                        }
+                        
+                        .textos-tarj .texto,.texto-tarjeta{
+                            font-size: 16px;
+                        }
+                        .tarjeta p{
+                            font-size: 12px;
+                        }
+                        .barra-de-progresos{
+                            left: 25%;
+                        }
+                        .calendario-turnos {
+                            width: 100%;
+                            h1 {
+                                width: 100%;
+                                height: 200px;
+                            }
+                            .check {
+                                right: 10px;
+                                top: 40px;
+                            }
+                        }
+                    
+                        .calendario {
+                            width: 100%;
+                            .day {
+                                width: 80px;
+                                height: 80px;
+                            }
+                        }
+                    
+                        .body-index {
+                            width: 100%;
+                        }
+                    }
+                    .main-about {
+                        height: 2400px;
+                    }
+                    .main-about .princ-about div p {
+                        font-size: 12px;
+                    } 
+                     @media (max-width: 426px) {
+                        .menu-nav {
+                            display: none;
+                        }
+                    
+                        .hamburger-menu {
+                            display: flex;
+                            position: absolute;
+                            right: 10%;
+                        }
+                    
+                        .menu-nav.active {
+                            display: flex;
+                            flex-direction: column;
+                            position: absolute;
+                            top: 100%;
+                            left: 70%;
+                            width: 30%;
+                            background-color: white;
+                        }
+                    
+                        .menu-nav.active ul {
+                            flex-direction: column;
+                            margin-top: 5px;
+                            left: 5%;
+                            justify-content: space-between;
+                        }
+                    
+                        .menu-nav.active a {
+                            
+                            padding: 10px;
+                            text-align: center;
+                            
+                        }
+                        .main-principal{
+                            height: 1000px;
+                        }
+                        .principal {
+                            height: 600px;
+                            display: flex;
+                            flex-direction: column;
+                            overflow: visible;
+                            background-color: black;
+                        }
+                        .imagenes img {
+                            height: 70%;
+                        }
+                        .barra-de-progresos{
+                            bottom: 30%;
+                        }
+                        .textos-tarj {
+                            width: 100%;
+                            bottom: 25%;
+                            display: block;
+                            }
+                            .textos-tarj h2 {
+                                position: absolute;
+                                width: 100%;
+                                text-align: center;
+                                z-index: 30;
+                                font-size: 24px;
+                            }
+                            .textos-tarj h2:first-child {
+                                width: 100%;
+                            }
+                            .textos-tarj h2:last-child {
+                                width: 100%;
+                            }
+                        .texto {
+                            display: none;
+                        }
+                        .texto-tarjeta {
+                            width: 100%;
+                            color: aliceblue;
+                        }
+                        .tarjeta:first-child {
+                            width: 100%;
+                        }
+                        .tarjeta:last-child {
+                            width: 100%;
+                        }
+                        .tarjetas {
+                            width: 100%;
+                            bottom: -10%;
+                            color: aliceblue;
+                            display: block;
+                        }
+                        .tarjeta {
+                            position: absolute;
+                            width: 100%;
+                            background-color: transparent;
+                        }
+                        .tarjeta p{
+                            font-size: 18px;
+                        }
+                        #images {
+                            height: 450px;
+                        }
+                        .img-cont {
+                            position: relative;
+                        }
+                        .div-img {
+                            position: relative;
+                            flex-direction: column;
+                            height: 400px;
+                        }
+                        #miVideo {
+                            width: 100%;
+                            height: 300px;
+                        }
+                        .div-img h3 {
+                            font-size: 20px;
+                            position: absolute;
+                            top:5%;
+                        }
+                        #footer .footer-main .cont h4 {
+                            top: 50px;
+                            left: 10px;
+                            font-size: 24px;
+                        }
+                        #footer .footer-main .cont h5 {
+                            top: 100px;
+                            left: 10px;
+                            font-size: 16px;
+                        }
+                        #footer .footer-main .formulario button {
+                            left: 25%;
+                        }
+                    } 
+                     @media (max-width: 320px) {
+                        #footer {
+                            height: 450px;
+                        }
+                        #footer .footer-main {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content:flex-start;
+                        }
+                        #footer .footer-main .cont {
+                            height: 20%;
+                            top: 0;
+                        }
+                        #footer .footer-main .cont h4 {
+                            top: 5px;
+                            left: 10px;
+                            font-size: 24px;
+                        }
+                        #footer .footer-main .formulario {
+                            margin: 2%;
+                        }
+                        #footer .footer-main .formulario button {
+                            left: 35%;
+                        }
+                        #images {
+                            height: 400px;
+                        }
+                        .main-about{
+                            height: 3000px;
+                        }
+                        .main-about .princ-about{
+                            grid-template-columns: repeat(2, 1fr);
+                            grid-template-rows: 50px repeat(12, 1fr);
+                            h2{
+                                grid-column: 1/3;
+                                grid-row: 1/2; 
+                            }
+                            div {
+                                height: 200px;
+                            }
+                        }
+                        .descr-1{
+                            grid-column: 1/3;
+                            grid-row: 2/3;
+                            width: 100%;
+                        }
+                        .descr-2{
+                            grid-column: 1/3;
+                            grid-row: 4/5;
+                            width: 100%;
+                        }
+                        .descr-3{
+                            grid-column: 1/3;
+                            grid-row: 6/7;
+                            width: 100%;
+                        }
+                        .descr-4{
+                            grid-column: 1/3;
+                            grid-row: 8/9;
+                            width: 100%;
+                        }
+                        .descr-5{
+                            grid-column: 1/3;
+                            grid-row: 10/11;
+                            width: 100%;
+                        }
+                        .descr-6{
+                            grid-column: 1/3;
+                            grid-row: 12/13;
+                            width: 100%;
+                        }
+                        .img-ab-1{
+                            grid-column: 1/3;
+                            grid-row: 3/4;
+                            width: 100%;
+                        }
+                        .img-ab-2{
+                            grid-column: 1/3;
+                            grid-row: 5/6;
+                            width: 100%;
+                        }
+                        .img-ab-3{
+                            grid-column: 1/3;
+                            grid-row: 7/8;
+                            width: 100%;
+                        }
+                        .img-ab-4{
+                            grid-column: 1/3;
+                            grid-row: 9/10;
+                            width: 100%;
+                        }
+                        .img-ab-5{
+                            grid-column: 1/3;
+                            grid-row: 11/12;
+                            width: 100%;
+                        }
+                        .img-ab-6{
+                            grid-column: 1/3;
+                            grid-row: 13/14;
+                            width: 100%;
+                        }
+                        .img-ab-7{
+                            display: none;
+                        }
+                    }
+                    
+
