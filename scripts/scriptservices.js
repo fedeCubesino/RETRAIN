@@ -240,10 +240,11 @@ function mostrarInfoClima(data) {
         console.error("Elemento con id 'clima' no encontrado.");
         return;
     }
-
+    console.log(data);
     contenedorClima.innerHTML = `
         <p>Temperatura: ${data.main.temp}°C</p>
         <p>Clima: ${data.weather[0].description}</p>
+        
     `;
 }
 
@@ -282,9 +283,9 @@ function mostrarForecast(data) {
         const dateString = date.toLocaleDateString('es-ES');
         const forecastElement = document.createElement("div");
         forecastElement.innerHTML = `
-            <p>Fecha: ${dateString}</p>
-            <p>Temperatura: ${forecast.main.temp}°C</p>
-            <p>Clima: ${forecast.weather[0].description}</p>
+            <p> ${dateString}</p>
+            <p> ${forecast.main.temp}°C</p>
+            <p> ${forecast.weather[0].description}</p>
         `;
         contenedorForecast.appendChild(forecastElement);
     }

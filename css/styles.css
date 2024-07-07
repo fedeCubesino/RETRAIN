@@ -827,8 +827,9 @@ button:hover {
                                 left: 25%;
                             }
                             .menu-nav {
-                                display: flex;
+                                
                                 ul {
+                                    
                                     position: relative;
                                     right: 5%;
                                     align-items: center;
@@ -897,7 +898,14 @@ button:hover {
                                 height: 80px;
                             }
                         }
-                    
+                        .calendario-reservas{
+                            width: 100%;
+                            .day {
+                                width: 80px;
+                                height: 80px;
+                            }
+                            
+                        }
                         .body-index {
                             width: 100%;
                         }
@@ -908,7 +916,27 @@ button:hover {
                     .main-about .princ-about div p {
                         font-size: 12px;
                     } 
+                    #forecast{
+                        flex-wrap: wrap;
+                        div {
+                            border-radius: 5px;
+                            border: 2px slateblue solid;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 5px;
+                            margin: 5px;
+                        }
+                    }
                      @media (max-width: 426px) {
+                        .header {
+                            width: 100%;
+                            .logo {
+                                
+                                left: 5%;
+                            }
+                        }
                         .menu-nav {
                             display: none;
                         }
@@ -1023,6 +1051,7 @@ button:hover {
                             position: absolute;
                             top:5%;
                         }
+
                         #footer .footer-main .cont h4 {
                             top: 50px;
                             left: 10px;
@@ -1035,6 +1064,38 @@ button:hover {
                         }
                         #footer .footer-main .formulario button {
                             left: 25%;
+                        }
+                        .weather {
+                            flex-direction: column;
+                        }
+                        
+                        .calendario{
+                            background-color: rgb(99, 93, 93);
+                        }
+                        .dias div{
+                            height: 35px;
+                        }
+                        #formulario-reserva div{
+                            font-size: 12px;
+                        }
+                        .calendario-reservas {
+                            background-size: 150%;
+                            h2{
+                                font-size: 24px;
+                            }
+                            .controles-reservas{
+                                #mesAnterior-res {
+                                    width: 60px;
+                                    height: 30px;
+                                }
+                                .mesActual{
+                                    font-size: 24px;
+                                }
+                                #mesSiguiente-res {
+                                    width: 60px;
+                                    height: 30px;
+                                }
+                            }
                         }
                     } 
                      @media (max-width: 320px) {
@@ -1051,12 +1112,15 @@ button:hover {
                             top: 0;
                         }
                         #footer .footer-main .cont h4 {
-                            top: 5px;
-                            left: 10px;
+                            top: 15%;
+                            left: 30%;
                             font-size: 24px;
                         }
+                        #footer .footer-main .cont h5 {
+                            left: 15%;
+                        }
                         #footer .footer-main .formulario {
-                            margin: 2%;
+                            margin: 5%;
                         }
                         #footer .footer-main .formulario button {
                             left: 35%;
@@ -1140,6 +1204,39 @@ button:hover {
                         }
                         .img-ab-7{
                             display: none;
+                        }
+                        .calendario{
+                            background-size: 120%;
+                        }
+                        .calendario .controles #mesAnterior {
+                            width: 60px;
+                            height: 25px;
+                        }
+                        .calendario .controles #mesSiguiente {
+                            width: 60px;
+                            height: 25px;
+                        }
+                        .calendario .controles .mesActual{
+                            font-size: 18px;
+                        }
+                        .calendario-turnos{
+                            background-size: 120%;
+                        }
+                        .calendario-turnos .controles #mesAnterior {
+                            width: 60px;
+                            height: 25px;
+                        }
+                        .calendario-turnos .controles #mesSiguiente {
+                            width: 60px;
+                            height: 25px;
+                        }
+                        .calendario-turnos .controles .mesActual{
+                            font-size: 18px;
+                        }
+                        .calendario-reservas{
+                            height: 500px;
+                            background-color: #1d2221;
+                            background-size: 200%;
                         }
                     }
                     

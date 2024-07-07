@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let fechaSeleccionada;
     let horariosReservadosPorFecha = {};  
     const calendarioReservas = document.querySelector(".calendario-reservas");
+    const hamburger = document.querySelector('.hamburger-menu');
+    const menuNav = document.querySelector('.menu-nav');
+    let lastScrollTop = 0;
     if (localStorage.getItem("datosReservas")) {
         const datosReservas = JSON.parse(localStorage.getItem("datosReservas"));
         horariosReservadosPorFecha = datosReservas;
@@ -86,6 +89,18 @@ document.addEventListener("DOMContentLoaded", function() {
         mostrarReservasEnCalendario(fechaSeleccionada);
     });
     
+    hamburger.addEventListener('click', () => {
+        menuNav.classList.toggle('active');
+    });
+    
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.scrollY || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop) {
+            menuNav.classList.remove('active');
+        } 
+        lastScrollTop = scrollTop;
+    });
     function mostrarReservasEnCalendario(fechaSeleccionada) {
         const fechaSeleccionadaStr = fechaSeleccionada.toLocaleDateString('es-ES');
      /* Eliminar los elementos de título y reservas anteriores */
