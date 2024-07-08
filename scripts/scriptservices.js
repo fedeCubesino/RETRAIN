@@ -240,7 +240,6 @@ function mostrarInfoClima(data) {
         console.error("Elemento con id 'clima' no encontrado.");
         return;
     }
-    console.log(data);
     contenedorClima.innerHTML = `
         <p>Temperatura: ${data.main.temp}°C</p>
         <p>Clima: ${data.weather[0].description}</p>
@@ -282,6 +281,7 @@ function mostrarForecast(data) {
         const date = new Date(forecast.dt * 1000);
         const dateString = date.toLocaleDateString('es-ES');
         const forecastElement = document.createElement("div");
+        forecastElement.classList.add("day-forecast")
         forecastElement.innerHTML = `
             <p> ${dateString}</p>
             <p> ${forecast.main.temp}°C</p>
