@@ -699,11 +699,13 @@ button:hover {
             h3 {
                 font-size: 32px;
                 margin: 10px;
+                color: aliceblue;
             }
             p {
                 width: 90%;
                 font-size: 28px;
-                margin: 10px;}
+                margin: 10px;
+            color: aliceblue;}
         }
     }
 }
