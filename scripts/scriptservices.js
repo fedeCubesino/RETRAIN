@@ -196,14 +196,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         localStorage.setItem("datosReservas", JSON.stringify(horariosReservadosPorFecha));
 
-        Swal.fire({
+        /* Swal.fire({
             title: "¡Perfecto!",
             text: "Reserva realizada con éxito. Nombre: " + nombre + ", Teléfono: " + telefono + ", Fecha: " + fechaSeleccionada.toLocaleDateString('es-ES') + ", Horario: " + horarioSeleccionado,
             imageUrl: "../assets/joel-1.jpg",
             imageWidth: 400,
             imageHeight: 200,
             imageAlt: "Imagen personalizada"
-        });
+        }); */
 
         formularioReserva.reset();
         formularioReserva.style.display = "none";

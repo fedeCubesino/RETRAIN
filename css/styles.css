@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-@import url(../assets/Mont-ExtraLightDEMO.otf);
+
 
 html {
     scroll-behavior: smooth;
@@ -708,10 +708,7 @@ button:hover {
     }
 }
 
-@keyframes fade {
-    to {
-      opacity: 1;
-      scale: 1; } }
+
 @keyframes fade-in {
     to {
       opacity: 1;
@@ -838,7 +835,7 @@ button:hover {
                                 ul {
                                     
                                     position: relative;
-                                    right: 5%;
+                                    left: -20%;
                                     align-items: center;
                                     display: flex;
                                     flex-direction: row;
@@ -858,13 +855,14 @@ button:hover {
                             .logo {
                                 width: 40%;
                                 height: 100%;
-                                left: 15%;
+                                left: 5%;
                             }
                             .menu-nav {
+                                left: 45%;
                                 ul {
                                     background-color: black;
                                     display: flex;
-                                    
+                                    right: 5%;
                                     z-index: 1000;
                                     align-items: center;
                                     li {
@@ -935,23 +933,21 @@ button:hover {
                                 margin: 5px;
                             }
                         }
-                        .encabezado{
-                            p{
+                        
+                            .encabezado p {
                                 font-size: 10px;
                             }
-                            a{
+                            .encabezado a{
                                 font-size: 10px;
                             }
-                        }
+                        
                     }
-                     @media (max-width: 426px) {
-                        .header {
-                            width: 100%;
-                            .logo {
+                     @media (max-width: 425px) {
+                        
+                            .header .logo {
                                 
                                 left: 5%;
                             }
-                        }
                         .header-about .logo{
                             left: 5%;
                             width: 100%;
@@ -1096,6 +1092,9 @@ button:hover {
                         .dias div{
                             width: 100%;
                             height: 30px;
+                        }
+                        .dia:hover {
+                            display: none;
                         }
                         #formulario-reserva div{
                             font-size: 12px;
@@ -1276,6 +1275,9 @@ button:hover {
                             height: 500px;
                             background-color: #1d2221;
                             background-size: 200%;
+                        }
+                        .barra-de-progresos{
+                            left: 5%;
                         }
                     }
                     
