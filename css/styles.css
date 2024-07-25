@@ -696,11 +696,14 @@ button:hover {
             animation: fade-in linear forwards;
             animation-timeline: view();
             animation-range: entry 20px;
+            h3 {
+                font-size: 32px;
+                margin: 10px;
+            }
             p {
                 width: 90%;
                 font-size: 28px;
-                margin: 10px;
-                color: aliceblue;}
+                margin: 10px;}
         }
     }
 }
