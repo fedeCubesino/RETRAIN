@@ -420,7 +420,7 @@ header {
 }
 
 .dia:hover {
-    scale: 1.05;
+    transform: scale(1.05);
     background-color: darkslategray;
     z-index: 2;
 }
@@ -487,7 +487,7 @@ header {
 }
 
 .horario:hover {
-    scale: 1.2;
+    transform: scale(1.2);
 }
 
 button:hover {
@@ -682,7 +682,7 @@ button:hover {
             grid-row: 1/2;}
         img {
             opacity: 0;
-            scale: .6;
+            transform: scale(.5);
             animation: fade-in linear forwards;
             animation-timeline: view();
             animation-range: entry 20px; }
@@ -692,46 +692,52 @@ button:hover {
             justify-content: center;
             align-items: center;
             opacity: 0;
-            scale: .6;
-            animation: fade linear forwards;
+            transform: scale(.5);
+            animation: fade-in linear forwards;
             animation-timeline: view();
             animation-range: entry 20px;
-            h3 {
-                font-size: 32px;
-                margin: 10px;
-            }
             p {
                 width: 90%;
                 font-size: 28px;
-                margin: 10px;}
+                margin: 10px;
+                color: aliceblue;}
         }
     }
+}
+.body-about .main-about .princ-about div h3 {
+    font-size: 32px;
+    margin: 10px;
+    color: aliceblue;
 }
 
 
 @keyframes fade-in {
     to {
       opacity: 1;
-      scale: 1; } }
+      transform: scale(1); }
+     }
 
       .descr-1 {grid-column: 1 / 2;
     grid-row: 2 / 3;width: 100%;
-    height: 100%;color: aliceblue;}
+    height: 100%;
+    h3 {
+        color: aliceblue;
+    }}
       .descr-2 {grid-column: 3 / 4;
     grid-row: 3 / 4;width: 100%;
-    height: 100%;color: aliceblue;}
+    height: 100%;}
       .descr-3 {grid-column: 1 / 2;
     grid-row: 4 / 5;width: 100%;
-    height: 100%;color: aliceblue;}
+    height: 100%;}
       .descr-4 {grid-column: 3 / 4;
     grid-row: 5 / 6;width: 100%;
-    height: 100%;color: aliceblue;}
+    height: 100%;}
       .descr-5 {grid-column: 1 / 2;
     grid-row: 6 / 7;width: 100%;
-    height: 100%;color: aliceblue;}
+    height: 100%;}
       .descr-6 {grid-column: 2 / 3;
     grid-row: 7 / 8;width: 100%;
-    height: 100%;color: aliceblue;}
+    height: 100%;}
 .img-ab-1 {grid-column: 2 / 4;
     grid-row: 2 / 3;width: 100%;
     height: 100%;
@@ -952,6 +958,9 @@ button:hover {
                             left: 5%;
                             width: 100%;
                         }
+                        .header-about .menu-nav.active ul {
+                            background-color: rgb(43, 51, 51);
+                        }
                         .menu-nav {
                             display: none;
                         }
@@ -1000,6 +1009,7 @@ button:hover {
                         }
                         .barra-de-progresos{
                             bottom: 30%;
+                            left: 20%;
                         }
                         .textos-tarj {
                             width: 100%;
@@ -1093,9 +1103,9 @@ button:hover {
                             width: 100%;
                             height: 30px;
                         }
-                        .dia:hover {
+                        /* .dia:hover {
                             display: none;
-                        }
+                        } */
                         #formulario-reserva div{
                             font-size: 12px;
                         }
