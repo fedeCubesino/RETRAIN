@@ -19,6 +19,7 @@ html {
 }
 header {
     position: relative;
+    width: 100%;
     top: 0;
     z-index: 150;
 }
@@ -28,17 +29,19 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgb(213,4,4);
-    background: radial-gradient(circle, rgba(213,4,4,0.9668242296918768) 52%, rgba(121,17,39,0.9023984593837535) 99%);
-    a {
-        margin-left: 10px;
-        margin-right: 10px;
-        color: antiquewhite;
-    }
-    p {
-        color: antiquewhite;
-    }
+    background: radial-gradient(circle, rgba(213,4,4,0.97) 52%, rgba(121,17,39,0.90) 99%);
 }
+
+.encabezado a {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: antiquewhite;
+}
+
+.encabezado p {
+    color: antiquewhite;
+}
+
 .header {
     position: relative;
     display: flex;
@@ -48,38 +51,42 @@ header {
     height: 100px;
     background-color: rgb(255, 255, 255);
     gap: 10px;
-    .logo {
-        width: 300px;
-        height: 100px;
-        position: absolute;
-        right: 50%;
-        .logoimg {
-            height: 100%;
-            width: 100%;
-        }
-    }
-        .menu-nav {
-            position: absolute;
-            left: 55%;
-            ul {
-            display: flex;
-            list-style: none;
-            li {
-                gap: 30px;
-                a {
-                    text-decoration: none;
-                    color: rgb(213,4,4);
-                    margin: 10px;
-                    cursor: pointer;
-                    &:hover{
-                        color: black;
-                    }
-                }
-            }
-        }
-    }
-
 }
+
+.header .logo {
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    right: 50%;
+}
+
+.header .logo .logoimg {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.header .menu-nav {
+    position: absolute;
+    left: 55%;
+}
+
+.header .menu-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px; 
+}
+
+.header .menu-nav ul li a {
+    text-decoration: none;
+    color: rgb(213, 4, 4);
+    margin: 10px;
+    cursor: pointer;
+}
+
+.header .menu-nav ul li a:hover {
+    color: black;
+}
+
 
 .hamburger-menu {
     display: none;
@@ -250,73 +257,85 @@ header {
     width: 100%;
     height: 400px;
     position: relative;
-    background: rgb(213,4,4);
-    background: radial-gradient(circle, rgba(213,4,4,0.9668242296918768) 52%, rgba(121,17,39,0.9023984593837535) 99%);
-    .footer-main {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        .cont {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            h4 {
-                position: absolute;
-                top: 100px;
-                left: 50px;
-                font-size: 30px;
-            }
-            h5 {
-                position: absolute;
-                top: 150px;
-                left: 50px;
-                font-size: 16px;
-            }
-        }
-        .formulario {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            
-            .form-grup {
-                position: absolute;
-                flex-direction: column;
-                top: 50px;
-                left: 0px;
-                width: 90%;
-                height: 250px;
-                input {
-                    position: relative;
-                    width: 100%;
-                    height: 40px;
-                    margin: 3px;
-                    &::placeholder {
-                        color: black;
-                    }
-                    background-color: red;
-                }
-                #mensaje::placeholder {position: absolute;
-                top: 5px;}
-                .form-mensaje {
-                    height: 100px;
-                }
-            }
-            button {
-                position: absolute;
-                top: 250px;
-                left: 100px;
-                width: 100px;
-                height: 30px;
-                color: red;
-                cursor: pointer;
-            }
-            button:hover {
-                background-color: rgb(75, 75, 161);
-            }
-        }
-    }
+    background: radial-gradient(circle, rgba(213, 4, 4, 0.97) 52%, rgba(121, 17, 39, 0.90) 99%);
+}
+
+#footer .footer-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#footer .footer-main .cont {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#footer .footer-main .cont h4 {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    font-size: 30px;
+}
+
+#footer .footer-main .cont h5 {
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    font-size: 16px;
+}
+
+#footer .footer-main .formulario {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#footer .footer-main .formulario .form-grup {
+    position: absolute;
+    flex-direction: column;
+    top: 50px;
+    left: 0px;
+    width: 90%;
+    height: 250px;
+}
+
+#footer .footer-main .formulario .form-grup input {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin: 3px;
+    background-color: red;
+}
+
+#footer .footer-main .formulario .form-grup input::placeholder {
+    color: black;
+}
+
+#footer .footer-main .formulario .form-grup #mensaje::placeholder {
+    position: absolute;
+    top: 5px;
+}
+
+#footer .footer-main .formulario .form-grup .form-mensaje {
+    height: 100px;
+}
+
+#footer .footer-main .formulario button {
+    position: absolute;
+    top: 250px;
+    left: 100px;
+    width: 100px;
+    height: 30px;
+    color: red;
+    cursor: pointer;
+}
+
+#footer .footer-main .formulario button:hover {
+    background-color: rgb(75, 75, 161);
 }
 
 
@@ -327,97 +346,109 @@ header {
     height: 1200px;
     justify-content: center;
     align-items: center;
-    h1 {
-        width: 900px;
-        height: 15%;
-        color: azure;
-        background-color: red;
-        text-align: center;
-        justify-self: center;
-        position: relative;
-        top: 5%;
-        }
-        .check {
-            position: relative;
-            height: 50px;
-            right: 20%;
-            background-color: grey;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            a {
-                text-decoration: none;
-                color: rgb(213,4,4);
-                margin: 10px;
-                padding: 5px;
-                cursor: pointer;
-                &:hover{
-                    color: black;
-                }
-        }
-    }
 }
+
+.calendario-turnos h1 {
+    width: 900px;
+    height: 15%;
+    color: azure;
+    background-color: red;
+    text-align: center;
+    position: relative;
+    top: 5%;
+}
+
+.calendario-turnos .check {
+    position: relative;
+    height: 50px;
+    right: 20%;
+    background-color: grey;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.calendario-turnos .check a {
+    text-decoration: none;
+    color: rgb(213, 4, 4);
+    margin: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.calendario-turnos .check a:hover {
+    color: black;
+}
+
 .calendario {
     position: relative;
-    text-decoration: beige;
     width: 900px;
     height: 800px;
     margin: auto;
     padding: 20px;
-    position: relative;
     background-image: url(../assets/people-exercise-fit-fitness.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
-    .controles {
-        display: flex;
-        justify-content: space-between;
-        margin: 4px;
-        .mesActual {
-            color: azure;
-            font-size: 28px;
-        }
-        #mesAnterior {
-            background-color: darkslategrey;
-            justify-self: center;
-            width: 100px;
-            border-radius: 50% 10% 10% 50%;
-            cursor: pointer;
-        }
-        
-        #mesSiguiente {
-            background-color: darkslategrey;
-            justify-self:center;
-            width: 100px;
-            border-radius: 10% 50% 50% 10%;
-            cursor: pointer;
-        }
-    }
-    ul {
-        display: flex;
-        li {
-            width: 120px;
-            list-style: none;
-            text-align: center;
-            color: azure;}
-    }
-    .dias {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        .dia {
-            position: relative;
-            color: azure;
-            padding: 10px;
-            border: 1px solid #ccc;
-            text-align: center;
-            cursor: pointer;
-        }
-    }
-    .mes {
-        text-align: center;
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
 }
+
+.calendario .controles {
+    display: flex;
+    justify-content: space-between;
+    margin: 4px;
+}
+
+.calendario .controles .mesActual {
+    color: azure;
+    font-size: 28px;
+}
+
+.calendario .controles #mesAnterior {
+    background-color: darkslategrey;
+    width: 100px;
+    border-radius: 50% 10% 10% 50%;
+    cursor: pointer;
+}
+
+.calendario .controles #mesSiguiente {
+    background-color: darkslategrey;
+    width: 100px;
+    border-radius: 10% 50% 50% 10%;
+    cursor: pointer;
+}
+
+.calendario ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.calendario ul li {
+    width: 120px;
+    text-align: center;
+    color: azure;
+}
+
+.calendario .dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendario .dias .dia {
+    position: relative;
+    color: azure;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+}
+
+.calendario .mes {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
 
 .dia:hover {
     transform: scale(1.05);
@@ -429,57 +460,65 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    .horarios-disponibles {
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 15px;
-        height: 30px;
-        color: rgb(206, 245, 208);
-        margin: 15px;
-        .horarios-container {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            gap: 20px;
-            .horario {
-                cursor: pointer;
-                width: 60px;
-            }
-        }
-        
-    }
+}
+
+.horarios-disponibles {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    height: 30px;
+    color: rgb(206, 245, 208);
+    margin: 15px;
+}
+
+.horarios-disponibles .horarios-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+}
+
+.horarios-disponibles .horarios-container .horario {
+    cursor: pointer;
+    width: 60px;
+}
+
     #formularioReserva {
         display: none;
         width: 300px;
         margin-top: 30px;
         flex-direction: column;
-        align-self: center;
         align-items: center;
         gap: 10px;
-        input {
-            width: 100%;
-            height: 25px;
-        }
-        button {
-            background-color: darkslategrey;
-            width: 50%;
-            height: 30px;
-            border-radius: 15px;
-            cursor: pointer;
-        }
-        h3 {
-            color: azure;
-        }
-        label {
-            color: azure;
-        }
-        .mensaje-error {
-            display: none;
-        }
     }
-}
+    
+    #formularioReserva input {
+        width: 100%;
+        height: 25px;
+    }
+    
+    #formularioReserva button {
+        background-color: darkslategrey;
+        width: 50%;
+        height: 30px;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+    
+    #formularioReserva h3 {
+        color: azure;
+    }
+    
+    #formularioReserva label {
+        color: azure;
+    }
+    
+    #formularioReserva .mensaje-error {
+        display: none;
+    }
+    
 
 .horario.reservado {
     color: rgb(199, 56, 56);
@@ -527,77 +566,90 @@ button:hover {
     position: relative;
     background-image: url(../assets/joel-2.jpg);
     background-repeat: no-repeat;
-    h2 {
-        justify-self: center;
-        text-align: center;
-        font-size: 50px;
-        color: #f00808;
-        background-color:rgb(69, 66, 70); 
-    }
-    .controles-reservas {
-        display: flex;
-        justify-content: space-between;
-        margin: 4px;
-        .mesActual {
-            color: aliceblue;
-            font-size: 28px;
-            }
-        #mesAnterior-res {
-            justify-self: center;
-            width: 100px;
-            height: 30px;
-            background-color: darkslategrey;
-            border-radius: 50% 10% 10% 50%;
-        }
-        
-        #mesSiguiente-res {
-            justify-self:center;
-            width: 100px;
-            background-color: darkslategrey;
-            border-radius: 10% 50% 50% 10%;
-        }
-    }
-    ul {
-        display: flex;
-        li {
-            width: 120px;
-            list-style: none;
-            text-align: center;
-            color: aliceblue;
-        }
-    }
-    .dias-res {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        .dia {
-            position: relative;
-            color: aliceblue;
-            padding: 10px;
-            border: 1px solid #ccc;
-            text-align: center;
-            cursor: pointer;
-        }
-    }
-    .mes {
-        text-align: center;
-        font-size: 24px;
-        margin-bottom: 20px;
-        color: aliceblue;
-    }
-    .reservas-form {
-        display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        width: 300px;
-    }
-    
-   .reservas-dia {
+    background-size: cover; /* Asegura que la imagen cubra el contenedor */
+}
+
+.calendario-reservas h2 {
+    text-align: center;
+    font-size: 50px;
+    color: #f00808;
+    background-color: rgb(69, 66, 70);
+}
+
+.calendario-reservas .controles-reservas {
+    display: flex;
+    justify-content: space-between;
+    margin: 4px;
+}
+
+.calendario-reservas .controles-reservas .mesActual {
+    color: aliceblue;
+    font-size: 28px;
+}
+
+.calendario-reservas .controles-reservas #mesAnterior-res {
+    width: 100px;
+    height: 30px;
+    background-color: darkslategrey;
+    border-radius: 50% 10% 10% 50%;
+    cursor: pointer;
+}
+
+.calendario-reservas .controles-reservas #mesSiguiente-res {
+    width: 100px;
+    background-color: darkslategrey;
+    border-radius: 10% 50% 50% 10%;
+    cursor: pointer;
+}
+
+.calendario-reservas ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.calendario-reservas ul li {
+    width: 120px;
+    text-align: center;
+    color: aliceblue;
+}
+
+.calendario-reservas .dias-res {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendario-reservas .dias-res .dia {
+    position: relative;
+    color: aliceblue;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+}
+
+.calendario-reservas .mes {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: aliceblue;
+}
+
+.calendario-reservas .reservas-form {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    width: 300px;
+}
+
+.calendario-reservas .reservas-dia {
     width: 80px;
     margin: 10px;
     color: red;
     background-color: black;
     text-align: center;
-   }
-   }
+}
+
    .reserva-elem {
     width: 50%;
     margin: 30px;
@@ -617,115 +669,119 @@ button:hover {
             background-color: rgb(149, 224, 139, 0.5);
         }
 
-.header-about {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100px;
-    background-color: black;
-    gap: 10px;
-    
-    .logo {
-        width: 300px;
-        height: 95%;
-        position: absolute;
-        right: 50%;
-        overflow: hidden;
-        .logoimg {
-            position: absolute;
-            width: 300px;
-            height: 200px;
-            top: -50px;
+        .header-about {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            position: relative;
+            gap: 10px;
         }
-    }
-        .menu-nav {
-        position: absolute;
-        left: 55%;
-        ul {
+        
+        .header-about .logo {
+            width: 300px;
+            height: 95%;
+            position: absolute;
+            right: 50%;
+            overflow: hidden;
+        }
+        
+        .header-about .logo .logoimg {
+            width: 100%;
+            position: absolute;
+            top: -50px;
+            z-index: 200;
+        }
+        
+        .header-about .menu-nav {
+            position: absolute;
+            left: 55%;
+        }
+        
+        .header-about .menu-nav ul {
             list-style: none;
             display: flex;
-            li {
-                gap: 30px;
-                a {
-                    text-decoration: none;
-                    color: rgb(213,4,4);
-                    margin: 10px;
-                    cursor: pointer;
-                    &:hover{
-                        color: aliceblue;
-                    }
-                }
+        }
+        
+        
+        
+        .header-about .menu-nav ul li a {
+            text-decoration: none;
+            color: rgb(213, 4, 4);
+            margin: 10px;
+            cursor: pointer;
+            &:hover {
+                color: aliceblue;
             }
         }
-    }
-
-}
-.main-about {
-    width: 100%;
-    height: 4220px;
-    .princ-about {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 100px repeat(6, 1fr);
-        background-color: black;
-        h2 {
-            color: aliceblue;
-            text-align: center;
-            justify-self: center;
-            align-self: center;
-            grid-column: 2/3;
-            grid-row: 1/2;}
-        img {
+        
+        .main-about {
+            width: 100%;
+            height: 4220px;
+        }
+        
+        .main-about .princ-about {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 100px repeat(6, 1fr);
+            background-color: black;
+        }
+        
+        .main-about .princ-about img {
             opacity: 0;
-            transform: scale(.5);
-            animation: fade-in linear forwards;
-            animation-timeline: view();
-            animation-range: entry 20px; }
-        div {
+            transform: scale(0.5);
+            animation: fade-in 1s linear forwards;
+        }
+        
+        .main-about .princ-about div {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             opacity: 0;
             transform: scale(0.5);
-            animation: fade-in linear forwards;
-            animation-timeline: view();
-            animation-range: entry 20px;
-            h3 {
-                font-size: 32px;
-            }
-            p {
-                width: 90%;
-                font-size: 28px;
-                margin: 10px;
-                color: aliceblue;}
+            animation: fade-in 1s linear forwards;
+            text-align: center;
         }
-    }
-}
+        
+        .main-about .princ-about p {
+            width: 90%;
+            font-size: 28px;
+            margin: 10px;
+            color: aliceblue;
+        }
+        
+        /* Animaciones */
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
 .body-about .main-about .princ-about div h3 {
     font-size: 32px;
-    margin: 10px;
+    color: aliceblue;
+    align-self: center;
+}
+.body-about .main-about .princ-about div h2 {
+    font-size: 32px;
     color: aliceblue;
 }
 
 
-@keyframes fade-in {
-    to {
-      opacity: 1;
-      transform: scale(1); }
-     }
-
       .descr-1 {grid-column: 1 / 2;
     grid-row: 2 / 3;width: 100%;
     height: 100%;
-    h3 {
-        color: aliceblue;
-    }}
+    }
       .descr-2 {grid-column: 3 / 4;
     grid-row: 3 / 4;width: 100%;
     height: 100%;}
@@ -745,32 +801,32 @@ button:hover {
     grid-row: 2 / 3;width: 100%;
     height: 100%;
     }
-    .img-ab-2 {grid-column: 1 / 3;
+.img-ab-2 {grid-column: 1 / 3;
         grid-row: 3 / 4;width: 100%;
         height: 100%;
         }
-        .img-ab-3 {grid-column: 2 / 4;
+.img-ab-3 {grid-column: 2 / 4;
             grid-row: 4 / 5;width: 100%;
             height: 100%;}
-            .img-ab-4 {grid-column: 1 / 3;
+.img-ab-4 {grid-column: 1 / 3;
                 grid-row: 5 / 6;width: 100%;
                     height: 100%;}
-                .img-ab-5 {grid-column: 2 / 4;
+.img-ab-5 {grid-column: 2 / 4;
                     grid-row: 6 / 7;width: 100%;
                 height: 100%;}
-                    .img-ab-6 {grid-column: 3 / 4;
+.img-ab-6 {grid-column: 3 / 4;
                         grid-row: 7 / 8;
                     width: 100%;height: 100%;}
-                        .img-ab-7 {grid-column: 1 / 2;
-                            grid-row: 7 / 8;
-                        width: 100%; height: 100%;
+.img-ab-7 {grid-column: 1 / 2;
+                grid-row: 7 / 8;
+                width: 100%; height: 100%;
                     }
-                    .weather {
-                        width: 100%;
-                        height: 500px;
-                        display: flex;
+.weather {
+                width: 100%;
+                height: 500px;
+                display: flex;
                     }
-                    #clima {
+#clima {
                         background: #c2b5b5;
                         padding: 20px;
                         border-radius: 8px;
@@ -779,19 +835,19 @@ button:hover {
                         width: 100%;
                         text-align: center;
                     }
-                    #clima h2 {
+#clima h2 {
                         margin: 0;
                         font-size: 24px;
                         color: #f00808;
                     }
-                    #clima h3 {
+#clima h3 {
                         font-size: 40px;
                     }
-                    #clima img {
+#clima img {
                         width: 120px;
                         height: 120px;
                     }
-                    #clima p {
+#clima p {
                         text-transform: capitalize;
                         margin: 5px 0;
                         font-size: 20px;
@@ -802,12 +858,18 @@ button:hover {
                         position: relative;
                         display: flex;
                         justify-content: center;
-                        h2 {
-                            position: absolute;
-                            top: 5%;
-                            color: #f00808;
-                        }
-                        .day-forecast{
+                        align-items: center;
+                        width: 100%; /* Opcional, para asegurar que el contenedor use todo el ancho disponible */
+                        padding: 20px; /* Opcional, para agregar un poco de espacio alrededor del contenido */
+                    }
+                    
+                    #forecast h2 {
+                        position: absolute;
+                        top: 5%;
+                        color: #f00808;
+                    }
+                    
+                    .day-forecast {
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
@@ -820,137 +882,158 @@ button:hover {
                         width: 150px;
                         max-height: 200px;
                         margin-left: 8px;
-                        h3 {text-transform: capitalize;}
-                        p {font-weight: bold;}
-                        }
-                        p:first-child{
-                            
-                            font-size: 24px;
-                            
-                        }
+                        text-align: center; /* Agregado para centrar el texto dentro del contenedor */
                     }
+                    
+                    .day-forecast h3 {
+                        text-transform: capitalize;
+                    }
+                    
+                    .day-forecast p {
+                        font-weight: bold;
+                        font-size: 24px; /* Establecido específicamente para los <p> dentro de .day-forecast */
+                    }
+                    
+                    .day-forecast p:first-child {
+                        font-size: 24px; /* Asegurando que el primer <p> tenga el tamaño de fuente deseado */
+                    }
+                    
                     @media (max-width: 768px) {
                         .header {
                             display: flex;
+                            width: 100%;
                             position: relative;
                             align-items: center;
-                            .logo {
-                                width: 200px;
-                                height: 80px;
-                                left: 15%;
-                            }
-                            .menu-nav {
-                                
-                                ul {
-                                    
-                                    position: relative;
-                                    left: -20%;
-                                    align-items: center;
-                                    display: flex;
-                                    flex-direction: row;
-                                    height: 150px;
-                                    li {
-                                        margin: 5px;
-                                        padding: 2px;
-                                       
-                                    }
-                                }
-                            }
                         }
+                    
+                        .header .logo {
+                            width: 150px;
+                            height: auto; 
+                            left: 0;
+                        }
+                        .header .menu-nav{
+                            display: flex;
+                            left: 85%;
+                            top: 30%;
+                        }
+                        .hamburger-menu {
+                            display: flex;
+                            position: absolute;
+                            right: 10%;
+                        }
+                        .header .menu-nav ul {
+                            position: absolute;
+                            left: 0%; 
+                            align-items: center;
+                            display: none;
+                            flex-direction: column; 
+                            height: auto;
+                            background-color: white;
+                        }
+                    
+                        .header .menu-nav ul li {
+                            margin: 5px;
+                            padding: 2px;
+                        }
+                    
                         .header-about {
                             display: flex;
                             align-items: center;
-                            
-                            .logo {
-                                width: 40%;
-                                height: 100%;
-                                left: 5%;
-                            }
-                            .menu-nav {
-                                left: 45%;
-                                ul {
-                                    background-color: black;
-                                    display: flex;
-                                    right: 5%;
-                                    z-index: 1000;
-                                    align-items: center;
-                                    li {
-                                        margin: 5px;
-                                    }
-                                }
-                            }
-                            .menu-nav.active{
-                                background-color: black;
-                            }
-                        }
-                        
-                        .textos-tarj .texto,.texto-tarjeta{
-                            font-size: 16px;
-                        }
-                        .tarjeta p{
-                            font-size: 12px;
-                        }
-                        .barra-de-progresos{
-                            left: 25%;
-                        }
-                        .calendario-turnos {
-                            
-                            h1 {
-                                width: 100%;
-                                height: 200px;
-                            }
-                            .check {
-                                right: 10px;
-                                top: 40px;
-                            }
+                            flex-direction: column; /* Cambiado a columna para mejorar la adaptabilidad */
                         }
                     
-                        .calendario {
-                            width: 100%;
-                            .day {
-                                width: 80px;
-                                height: 80px;
-                            }
+                        .header-about .logo {
+                            width: 40%;
+                            height: auto;
+                            left: 0;
                         }
-                        .calendario-reservas{
+                    
+                        .header-about .menu-nav {
+                            left: 0;
                             width: 100%;
-                            .day {
-                                width: 80px;
-                                height: 80px;
-                            }
-                            
                         }
+                    
+                        .header-about .menu-nav ul {
+                            background-color: black;
+                            display: flex;
+                            flex-direction: column; /* Alineación en columna para pantallas pequeñas */
+                            right: 0;
+                            z-index: 1000;
+                            align-items: center;
+                        }
+                    
+                        .menu-nav.active {
+                            background-color: black;
+                            position: relative;
+                        }
+                        .menu-nav.active ul{
+                            display: flex;
+                        }
+                    
+                        .textos-tarj .texto, .texto-tarjeta {
+                            font-size: 1rem; /* Ajustado para unidades relativas */
+                        }
+                    
+                        .tarjeta p {
+                            font-size: 0.75rem; /* Ajustado para unidades relativas */
+                        }
+                    
+                        .barra-de-progresos {
+                            left: 0; /* Centrando para pantallas pequeñas */
+                            margin: 0 auto;
+                        }
+                    
+                        .calendario-turnos h1 {
+                            width: 100%;
+                            height: auto;
+                        }
+                    
+                        .calendario-turnos .check {
+                            right: 10px;
+                            top: 40px;
+                        }
+                    
+                        .calendario, .calendario-reservas {
+                            width: 100%;
+                        }
+                    
+                        .calendario .day, .calendario-reservas .day {
+                            width: 60px; /* Ajustado para pantallas pequeñas */
+                            height: 60px;
+                        }
+                    
                         .body-index {
                             width: 100%;
                         }
+                    
                         .main-about {
-                            height: 2400px;
+                            height: auto; /* Ajuste automático para pantallas pequeñas */
                         }
+                    
                         .main-about .princ-about div p {
-                            font-size: 12px;
-                        } 
-                        #forecast{
-                            flex-wrap: wrap;
-                            div {
-                                border-radius: 5px;
-                                border: 2px slateblue solid;
-                                display: flex;
-                                flex-direction: column;
-                                justify-content: center;
-                                align-items: center;
-                                gap: 5px;
-                                margin: 5px;
-                            }
+                            font-size: 0.75rem; /* Ajustado para unidades relativas */
                         }
-                        
-                            .encabezado p {
-                                font-size: 10px;
-                            }
-                            .encabezado a{
-                                font-size: 10px;
-                            }
-                        
+                    
+                        #forecast {
+                            flex-wrap: wrap;
+                        }
+                    
+                        #forecast div {
+                            border-radius: 5px;
+                            border: 2px slateblue solid;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 5px;
+                            margin: 5px;
+                        }
+                    
+                        .encabezado p, .encabezado a {
+                            font-size: 0.625rem; /* Ajustado para unidades relativas */
+                        }
                     }
+                    
                      @media (max-width: 425px) {
                         
                             .header .logo {
@@ -981,15 +1064,10 @@ button:hover {
                             top: 100%;
                             left: 70%;
                             width: 30%;
-                            background-color: white;
+                            
                         }
                     
-                        .menu-nav.active ul {
-                            flex-direction: column;
-                            margin-top: 5px;
-                            left: 5%;
-                            justify-content: space-between;
-                        }
+                       
                     
                         .menu-nav.active a {
                             
