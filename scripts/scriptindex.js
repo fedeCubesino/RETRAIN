@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", function() {
     
         imagenes.forEach((imagen) => {
             imagen.style.opacity = 0;
-            imagen.style.transform = 'scale(1.2)';
+            
         });
     
         imagenes[currentIndex].style.opacity = 1;
-        imagenes[currentIndex].style.transform = 'scale(1)';
+        
     
         updateProgressBars(currentIndex);
         currentIndex = (currentIndex + 1) % tarjetasCount;
@@ -46,15 +46,15 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateProgressBars(index) {
         progressBars.forEach((progressBar, idx) => {
             if (idx === index) {
-                progressBar.style.transition = 'none'; // Elimina la transición previa
-                progressBar.style.width = '0%'; // Reinicia la barra de progreso
+                progressBar.style.transition = 'none'; 
+                progressBar.style.width = '0%'; 
                 setTimeout(() => {
-                    progressBar.style.transition = 'width 5s linear'; // Añade la nueva transición
-                    progressBar.style.width = '100%'; // Llena la barra de progreso
-                }, 50); // Retraso para permitir el reinicio
+                    progressBar.style.transition = 'width 5s linear'; 
+                    progressBar.style.width = '100%'; 
+                }, 50); 
             } else {
                 progressBar.style.transition = 'none';
-                progressBar.style.width = '0%'; // Reinicia las barras que no están activas
+                progressBar.style.width = '0%'; 
             }
         });
     }
@@ -87,10 +87,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
             imagenes.forEach((imagen, idx) => {
                 imagen.style.opacity = 0;
-                imagen.style.transform = 'scale(1.2)';
                 if (idx === i) {
                     imagen.style.opacity = 1;
-                    imagen.style.transform = 'scale(1)';
                 }
             });
 
