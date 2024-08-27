@@ -705,16 +705,19 @@ button:hover {
             display: flex;
         }
         
-        
+        .header-about .menu-nav ul li {
+            gap: 30px;
+        }
         
         .header-about .menu-nav ul li a {
             text-decoration: none;
             color: rgb(213, 4, 4);
             margin: 10px;
             cursor: pointer;
-            &:hover {
-                color: aliceblue;
-            }
+        }
+        
+        .header-about .menu-nav ul li a:hover {
+            color: aliceblue;
         }
         
         .main-about {
@@ -725,10 +728,20 @@ button:hover {
         .main-about .princ-about {
             width: 100%;
             height: 100%;
+            object-fit: cover;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: 100px repeat(6, 1fr);
             background-color: black;
+        }
+        
+        .main-about .princ-about h2 {
+            color: aliceblue;
+            text-align: center;
+            justify-self: center;
+            align-self: center;
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
         }
         
         .main-about .princ-about img {
@@ -744,39 +757,30 @@ button:hover {
             align-items: center;
             opacity: 0;
             transform: scale(0.5);
-            animation: fade-in 1s linear forwards;
-            text-align: center;
+            animation: fade-in linear forwards;
+            animation-timeline: view();
+            animation-range: entry 20px;
         }
         
-        .main-about .princ-about p {
+        .main-about .princ-about div h3 {
+            font-size: 32px;
+            margin: 10px;
+            color: aliceblue;
+        }
+        
+        .main-about .princ-about div p {
             width: 90%;
             font-size: 28px;
             margin: 10px;
             color: aliceblue;
         }
         
-        /* Animaciones */
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-.body-about .main-about .princ-about div h3 {
-    font-size: 32px;
-    color: aliceblue;
-    align-self: center;
-}
-.body-about .main-about .princ-about div h2 {
-    font-size: 32px;
-    color: aliceblue;
-}
 
+@keyframes fade-in {
+    to {
+      opacity: 1;
+      transform: scale(1); }
+     }
 
       .descr-1 {grid-column: 1 / 2;
     grid-row: 2 / 3;width: 100%;
