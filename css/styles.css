@@ -1349,6 +1349,14 @@ button:hover {
                         
                     } 
                      @media (max-width: 320px) {
+                        .imagenes{
+                            position: relative;
+                            height: 70%;
+                            width: 100%;
+                        }
+                        .imagenes img{
+                            position: absolute;
+                        }
                         #images {
                             height: 400px;
                         }
